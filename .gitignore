@@ -1,3 +1,7 @@
+.vscode
+bin
+raylib_win64
+
 # Prerequisites
 *.d
 
