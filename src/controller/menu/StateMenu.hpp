@@ -1,11 +1,14 @@
 #pragma once
+#include <memory>
 #include "../WindowState.hpp"
+#include "../../view/menu/StateMenuView.hpp"
 #include "raylib.h"
 
 class StateMenu : public WindowState
 {
     private:
-       Texture2D background;
+        std::unique_ptr<StateMenuView> view;
+        Texture2D background;
     public:
         StateMenu();
         ~StateMenu();
