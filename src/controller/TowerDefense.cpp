@@ -49,10 +49,15 @@ void TowerDefense::setState(enumStates state)
 void TowerDefense::init()
 {
     this->state = std::make_unique<StateMenu>();
-    const int screenWidth = 800;
-    const int screenHeight = 450;
-    InitWindow(screenWidth, screenHeight, "raylib [core] example - basic window");
+
+    const int screenWidth = 1280;
+    const int screenHeight = 720;
+
+    InitWindow(screenWidth, screenHeight, "Tower Defense");
+
     SetTargetFPS(60); 
+    SetWindowMinSize(screenWidth, screenHeight);
+    SetWindowMaxSize(screenWidth, screenHeight);
 };
 
 void TowerDefense::show()
@@ -67,7 +72,7 @@ void TowerDefense::show()
 
         this->state;
 
-        DrawFPS(10, 30);
+        DrawFPS(10, 10);
 
         EndDrawing();
     }
