@@ -1,0 +1,83 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "type": "cppbuild",
+            "label": "C/C++: g++ build with raylib (Linux)",
+            "command": "/usr/bin/g++",
+            "args": [
+                "-fdiagnostics-color=always",
+                "-g",
+                "${workspaceFolder}/*.cpp",
+                "${workspaceFolder}/src/controller/*.cpp",
+                "${workspaceFolder}/src/controller/menu/*.cpp",
+                "${workspaceFolder}/src/controller/game/*.cpp",
+                "${workspaceFolder}/src/controller/game/components/*.cpp",
+                "${workspaceFolder}/src/model/*.cpp",
+                "${workspaceFolder}/src/view/menu/*.cpp",
+                "${workspaceFolder}/src/view/game/*.cpp",
+                "-o",
+                "${workspaceFolder}/bin/main",
+                "-lraylib",
+                "&&",
+                "cp",
+                "-r",
+                "${workspaceFolder}/assets/*",
+                "${workspaceFolder}/bin/assets/"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "detail": "Linux Compilation"
+        },
+        {
+            "type": "cppbuild",
+            "label": "Compile for Windows (.exe)",
+            "command": "/usr/bin/x86_64-w64-mingw32-g++",
+            "args": [
+                "-fdiagnostics-color=always",
+                "-g",
+                "${workspaceFolder}/*.cpp",
+                "${workspaceFolder}/src/controller/*.cpp",
+                "${workspaceFolder}/src/controller/menu/*.cpp",
+                "${workspaceFolder}/src/controller/game/*.cpp",
+                "${workspaceFolder}/src/controller/game/components/*.cpp",
+                "${workspaceFolder}/src/model/*.cpp",
+                "${workspaceFolder}/src/view/menu/*.cpp",
+                "${workspaceFolder}/src/view/game/*.cpp",
+                "-o",
+                "${workspaceFolder}/bin/main.exe",
+                "-I${workspaceFolder}/raylib_win64/include",
+                "-L${workspaceFolder}/raylib_win64/lib",
+                "-lraylib",
+                "-lopengl32",
+                "-lgdi32",
+                "-lwinmm",
+                "-static",
+                "&&",
+                "cp",
+                "-r",
+                "${workspaceFolder}/assets/*",
+                "${workspaceFolder}/bin/assets/"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": false
+            },
+            "detail": "Windows Cross-compilation"
+        }
+    ]
+}
