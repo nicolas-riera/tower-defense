@@ -1,6 +1,6 @@
 #pragma once
 
-class StateDifficulty : public WindowState
+class StateGame : public WindowState
 {
     public:
         void init();
