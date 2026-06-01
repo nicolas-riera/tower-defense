@@ -45,11 +45,12 @@ void TowerDefense::setState(enumStates state)
         break;
     }
     this->state->init();
+    this->state->setContext(this);
 }
 
 void TowerDefense::init()
 {
-    this->state = std::make_unique<StateMenu>();
+    this->setState(MENU);
 
     const int screenWidth = 1280;
     const int screenHeight = 720;
