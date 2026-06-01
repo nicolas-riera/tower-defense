@@ -50,8 +50,6 @@ void TowerDefense::setState(enumStates state)
 
 void TowerDefense::init()
 {
-    this->setState(MENU);
-
     const int screenWidth = 1280;
     const int screenHeight = 720;
 
@@ -60,6 +58,8 @@ void TowerDefense::init()
     SetTargetFPS(60);
     SetWindowMinSize(screenWidth, screenHeight);
     SetWindowMaxSize(screenWidth, screenHeight);
+
+    this->setState(MENU);
 };
 
 void TowerDefense::show()

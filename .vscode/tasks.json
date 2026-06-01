@@ -2,7 +2,7 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "type": "shell",
+            "type": "cppbuild",
             "label": "C/C++: g++ build with raylib (Linux)",
             "command": "/usr/bin/g++",
             "args": [
@@ -19,10 +19,6 @@
                 "-o",
                 "${workspaceFolder}/bin/main",
                 "-lraylib",
-                "&&",
-                "mkdir",
-                "-p",
-                "${workspaceFolder}/bin/assets",
                 "&&",
                 "cp",
                 "-r",
@@ -42,7 +38,7 @@
             "detail": "Compilation Linux"
         },
         {
-            "type": "shell",
+            "type": "cppbuild",
             "label": "Compiler pour Windows (.exe)",
             "command": "/usr/bin/x86_64-w64-mingw32-g++",
             "args": [
@@ -61,10 +57,6 @@
                 "-lgdi32",
                 "-lwinmm",
                 "-static",
-                "&&",
-                "mkdir",
-                "-p",
-                "${workspaceFolder}/bin/assets",
                 "&&",
                 "cp",
                 "-r",
