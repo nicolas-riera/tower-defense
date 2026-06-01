@@ -4,10 +4,6 @@ StateMenuView::StateMenuView(){};
 
 StateMenuView::~StateMenuView(){};
 
-void StateMenuView::setContext(TowerDefense* context){
-    this->context = context;
-};
-
 void StateMenuView::init(){
     this->background = LoadTexture("assets/img/menu_background.png");
     this->logo = LoadTexture("assets/img/logo.png");
