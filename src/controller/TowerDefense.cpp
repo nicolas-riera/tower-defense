@@ -12,9 +12,9 @@
 
 #include "raylib.h"
 
-TowerDefense::TowerDefense(){};
+TowerDefense::TowerDefense() {};
 
-TowerDefense::~TowerDefense(){};
+TowerDefense::~TowerDefense() {};
 
 void TowerDefense::setState(enumStates state)
 {
@@ -44,6 +44,7 @@ void TowerDefense::setState(enumStates state)
     default:
         break;
     }
+    this->state->init();
 }
 
 void TowerDefense::init()
@@ -55,7 +56,7 @@ void TowerDefense::init()
 
     InitWindow(screenWidth, screenHeight, "Tower Defense");
 
-    SetTargetFPS(60); 
+    SetTargetFPS(60);
     SetWindowMinSize(screenWidth, screenHeight);
     SetWindowMaxSize(screenWidth, screenHeight);
 };
@@ -70,7 +71,7 @@ void TowerDefense::show()
 
         ClearBackground(RAYWHITE);
 
-        this->state;
+        this->state->expose();
 
         DrawFPS(10, 10);
 
