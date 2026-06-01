@@ -44,18 +44,15 @@ void TowerDefense::setState(enumStates state)
     default:
         break;
     }
-    this->state->init();
     this->state->setContext(this);
+    this->state->init();
 }
 
 void TowerDefense::init()
 {
-    const int screenWidth = 1280;
-    const int screenHeight = 720;
-
     SetConfigFlags(FLAG_WINDOW_HIGHDPI);
 
-    InitWindow(screenWidth, screenHeight, "Tower Defense");
+    InitWindow(this->screenWidth, this->screenHeight, "Tower Defense");
 
     SetTargetFPS(60);
 
