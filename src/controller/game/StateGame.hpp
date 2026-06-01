@@ -1,11 +1,11 @@
 #pragma once
 #include "../WindowState.hpp"
 
-class StateDifficulty : public WindowState
+class StateGame : public WindowState
 {
     public:
-        StateDifficulty();
-        ~StateDifficulty();
+        StateGame();
+        ~StateGame();
         void init();
         void expose();
 };

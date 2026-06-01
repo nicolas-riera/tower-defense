@@ -1,26 +1,10 @@
-#pragma once
-#include "raylib.h"
+#include <memory>
+#include "src/controller/TowerDefense.hpp"
 
 int main(void)
 {
-
-    const int screenWidth = 1280;
-    const int screenHeight = 720;
-
-    SetConfigFlags(FLAG_VSYNC_HINT); // Enable VSYNC
-    InitWindow(screenWidth, screenHeight, "Tower Defense");
-
-    SetTargetFPS(60); 
-
-
-
-    // Main game loop
-    while (!WindowShouldClose())    // Detect window close button or ESC key
-    {
-        
-    }
-
-    CloseWindow();        
-   
+    std::unique_ptr<TowerDefense> game = std::make_unique<TowerDefense>();
+    game->init();
+    game->show();
     return 0;
 }
