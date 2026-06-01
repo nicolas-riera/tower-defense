@@ -35,11 +35,11 @@
                 "kind": "build",
                 "isDefault": true
             },
-            "detail": "Compilation Linux"
+            "detail": "Linux Compilation"
         },
         {
             "type": "cppbuild",
-            "label": "Compiler pour Windows (.exe)",
+            "label": "Compile for Windows (.exe)",
             "command": "/usr/bin/x86_64-w64-mingw32-g++",
             "args": [
                 "-fdiagnostics-color=always",
@@ -73,7 +73,7 @@
                 "kind": "build",
                 "isDefault": false
             },
-            "detail": "Cross-compilation Windows"
+            "detail": "Windows Cross-compilation"
         }
     ]
 }

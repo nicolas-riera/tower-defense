@@ -53,11 +53,11 @@ void TowerDefense::init()
     const int screenWidth = 1280;
     const int screenHeight = 720;
 
+    SetConfigFlags(FLAG_WINDOW_HIGHDPI);
+
     InitWindow(screenWidth, screenHeight, "Tower Defense");
 
     SetTargetFPS(60);
-    SetWindowMinSize(screenWidth, screenHeight);
-    SetWindowMaxSize(screenWidth, screenHeight);
 
     this->setState(MENU);
 };
