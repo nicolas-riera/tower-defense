@@ -3,6 +3,7 @@
 #include "EnumStates.hpp"
 
 #include "menu/StateMenu.hpp"
+#include "menu/StateOptions.hpp"
 #include "menu/StateCredits.hpp"
 #include "menu/StateDifficulty.hpp"
 #include "menu/StatePauseMenu.hpp"
@@ -22,6 +23,9 @@ void TowerDefense::setState(enumStates state)
     {
     case MENU:
         this->state = std::make_unique<StateMenu>();
+        break;
+    case OPTIONS:
+        this->state = std::make_unique<StateOptions>();
         break;
     case CREDITS:
         this->state = std::make_unique<StateCredits>();
