@@ -2,13 +2,13 @@
 #include <fstream>
 #include <filesystem>
 #include <iostream>
-#include <../../include/json.hpp>
+#include <json.hpp>
 
 using json = nlohmann::json;
 namespace fs = std::filesystem;
 
-PersistentDataModel::PersistentDataModel() {}
-PersistentDataModel::~PersistentDataModel() {}
+PersistentDataModel::PersistentDataModel(){};
+PersistentDataModel::~PersistentDataModel(){};
 
 void PersistentDataModel::save(short difficulty, int score, const std::string& username) 
 {
@@ -36,7 +36,7 @@ void PersistentDataModel::save(short difficulty, int score, const std::string& u
         file << jArray.dump(4);
         file.close();
     }
-}
+};
 
 std::vector<PersistentDataModel::PlayerScore> PersistentDataModel::load() 
 {
@@ -74,4 +74,4 @@ std::vector<PersistentDataModel::PlayerScore> PersistentDataModel::load()
     }
 
     return scores;
-}
+};

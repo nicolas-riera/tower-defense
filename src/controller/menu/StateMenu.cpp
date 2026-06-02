@@ -17,7 +17,10 @@ void StateMenu::init(){
     this->menuButtons.push_back(std::make_unique<Button>((this->context->screenWidth / 2) - 75, 410, 150, 50, "Options", [this]() {
         this->context->setState(OPTIONS);
     }));
-    this->menuButtons.push_back(std::make_unique<Button>((this->context->screenWidth / 2) - 75, 470, 150, 50, "Quit", []() {
+    this->menuButtons.push_back(std::make_unique<Button>((this->context->screenWidth / 2) - 75, 470, 150, 50, "Scores", [this]() {
+        this->context->setState(SCOREBOARD);
+    }));
+    this->menuButtons.push_back(std::make_unique<Button>((this->context->screenWidth / 2) - 75, 530, 150, 50, "Quit", []() {
         CloseWindow();
         exit(0);
     }));

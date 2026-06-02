@@ -6,6 +6,7 @@
 #include "menu/StateDifficulty.hpp"
 #include "menu/StateOptions.hpp"
 #include "menu/StateCredits.hpp"
+#include "menu/StateScoreboard.hpp"
 #include "menu/StatePauseMenu.hpp"
 #include "game/StateGame.hpp"
 #include "game/StateGameLost.hpp"
@@ -40,6 +41,9 @@ void TowerDefense::updateState()
         break;
     case CREDITS:
         this->state = std::make_unique<StateCredits>();
+        break;
+    case SCOREBOARD:
+        this->state = std::make_unique<StateScoreboard>();
         break;
     case PAUSEMENU:
         this->state = std::make_unique<StatePauseMenu>();

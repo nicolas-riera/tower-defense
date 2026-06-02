@@ -5,7 +5,7 @@
 class PersistentDataModel 
 {
     private:
-        short difficulty;
+        short difficulty; // 0 for easy, 1 for normal, 2 for hard
         int score;
         std::string username;
 
