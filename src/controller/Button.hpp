@@ -2,6 +2,7 @@
 #include "raylib.h"
 #include <functional>
 #include <string>
+#include "TowerDefense.hpp"
 
 class Button {
 private:
@@ -10,9 +11,10 @@ private:
     Color baseColor;
     Color currentColor;
     std::function<void()> onClick;
+    TowerDefense* context;
 
 public:
-    Button(float x, float y, float width, float height, std::string text, std::function<void()> callback);
+    Button(float x, float y, float width, float height, std::string text, std::function<void()> callback, TowerDefense* towerDefense);
     ~Button();
     void Update();
     void Draw() const;

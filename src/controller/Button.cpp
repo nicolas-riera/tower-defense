@@ -1,7 +1,7 @@
 #include "Button.hpp"
 
-Button::Button(float x, float y, float width, float height, std::string text, std::function<void()> callback)
-    : bounds{ x, y, width, height }, text(text), baseColor(GRAY), currentColor(GRAY), onClick(callback) 
+Button::Button(float x, float y, float width, float height, std::string text, std::function<void()> callback, TowerDefense* towerDefense)
+    : bounds{ x, y, width, height }, text(text), baseColor(GRAY), currentColor(GRAY), onClick(callback), context(towerDefense) 
 {
 };
 
@@ -13,6 +13,13 @@ void Button::Update()
 
     if (CheckCollisionPointRec(mousePos, bounds))
     {
+        if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT) && onClick)
+        {
+            this->context->getSoundManager().playSfx(0);
+            onClick();
+            return;
+        }
+
         if (IsMouseButtonDown(MOUSE_BUTTON_LEFT))
         {
             currentColor = MAROON;
@@ -20,11 +27,6 @@ void Button::Update()
         else
         {
             currentColor = LIGHTGRAY;
-        }
-
-        if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT) && onClick)
-        {
-            onClick();
         }
     }
     else

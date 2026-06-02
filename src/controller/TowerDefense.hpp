@@ -17,6 +17,7 @@ class TowerDefense
         ~TowerDefense();
         void updateState();
         void setState(enumStates state);
+        SoundManager& getSoundManager();
         void init();
         void show();
 };

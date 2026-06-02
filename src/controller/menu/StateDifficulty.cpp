@@ -11,16 +11,16 @@ void StateDifficulty::init(){
 
     this->difficultyButtons.push_back(std::make_unique<Button>((this->context->screenWidth / 2) - 75, 350, 150, 50, "Easy", []() {
         
-    }));
+    }, this->context));
     this->difficultyButtons.push_back(std::make_unique<Button>((this->context->screenWidth / 2) - 75, 410, 150, 50, "Normal", []() {
        
-    }));
+    }, this->context));
     this->difficultyButtons.push_back(std::make_unique<Button>((this->context->screenWidth / 2) - 75, 470, 150, 50, "Hard", [this]() {
 
-    }));
+    }, this->context));
     this->difficultyButtons.push_back(std::make_unique<Button>((this->context->screenWidth / 2) - 75, 550, 150, 50, "Back", [this]() {
         this->context->setState(MENU);
-    }));
+    }, this->context));
 };
 
 void StateDifficulty::expose(){
