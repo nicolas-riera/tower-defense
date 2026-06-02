@@ -1,8 +1,13 @@
 #pragma once
+#include <memory>
+#include "../../view/menu/StateDifficultyView.hpp"
 #include "../WindowState.hpp"
 
 class StateDifficulty : public WindowState
 {
+    private:
+        std::unique_ptr<StateDifficultyView> view;
+        std::vector<std::unique_ptr<Button>> difficultyButtons;
     public:
         StateDifficulty();
         ~StateDifficulty();

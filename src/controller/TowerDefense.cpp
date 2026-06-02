@@ -3,8 +3,9 @@
 #include "EnumStates.hpp"
 
 #include "menu/StateMenu.hpp"
-#include "menu/StateCredits.hpp"
 #include "menu/StateDifficulty.hpp"
+#include "menu/StateOptions.hpp"
+#include "menu/StateCredits.hpp"
 #include "menu/StatePauseMenu.hpp"
 #include "game/StateGame.hpp"
 #include "game/StateGameLost.hpp"
@@ -18,16 +19,27 @@ TowerDefense::~TowerDefense() {};
 
 void TowerDefense::setState(enumStates state)
 {
-    switch (state)
+    this->nextState = state;
+}
+
+void TowerDefense::updateState()
+{
+
+    if (this->nextState == NONE) return;
+
+    switch (this->nextState)
     {
     case MENU:
         this->state = std::make_unique<StateMenu>();
         break;
-    case CREDITS:
-        this->state = std::make_unique<StateCredits>();
-        break;
     case DIFFICULTY:
         this->state = std::make_unique<StateDifficulty>();
+        break;
+    case OPTIONS:
+        this->state = std::make_unique<StateOptions>();
+        break;
+    case CREDITS:
+        this->state = std::make_unique<StateCredits>();
         break;
     case PAUSEMENU:
         this->state = std::make_unique<StatePauseMenu>();
@@ -46,6 +58,8 @@ void TowerDefense::setState(enumStates state)
     }
     this->state->setContext(this);
     this->state->init();
+
+    this->nextState = NONE;
 }
 
 void TowerDefense::init()
@@ -65,16 +79,21 @@ void TowerDefense::show()
     while (!WindowShouldClose()) // Detect window close button or ESC key
     {
 
+        // Delayed state changing to avoid segmentation faults
+        updateState();
+
         BeginDrawing();
 
-        ClearBackground(RAYWHITE);
+            ClearBackground(RAYWHITE);
 
-        this->state->expose();
+            this->state->expose();
 
-        DrawFPS(10, 10);
+            DrawFPS(10, 10);
 
         EndDrawing();
     }
+
+    this->state.reset(); 
 
     CloseWindow();
 };

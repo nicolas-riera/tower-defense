@@ -3,14 +3,13 @@
 #include "../../controller/Button.hpp"
 #include "raylib.h"
 
-class StateMenuView : public WindowView
+class StateOptionsView : public WindowView
 {
     private:
         Texture2D background;
-        Texture2D logo;
     public:
-        StateMenuView();
-        ~StateMenuView();
+        StateOptionsView();
+        ~StateOptionsView();
         void init();
         void display(const std::vector<std::unique_ptr<Button>>& buttons);
 };

@@ -1,9 +1,11 @@
 #pragma once
 
 enum enumStates{
+    NONE,
     MENU,
-    CREDITS,
     DIFFICULTY,
+    OPTIONS,
+    CREDITS,
     PAUSEMENU,
     GAME,
     GAMELOST,
