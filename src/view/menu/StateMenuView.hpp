@@ -1,5 +1,6 @@
 #pragma once
 #include "../WindowView.hpp"
+#include "../../controller/Button.hpp"
 #include "raylib.h"
 
 class StateMenuView : public WindowView
@@ -11,5 +12,5 @@ class StateMenuView : public WindowView
         StateMenuView();
         ~StateMenuView();
         void init();
-        void display();
+        void display(std::vector<Button> buttons);
 };

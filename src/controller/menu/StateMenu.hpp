@@ -8,7 +8,7 @@ class StateMenu : public WindowState
 {
     private:
         std::unique_ptr<StateMenuView> view;
-        Texture2D background;
+        std::vector<Button> menuButtons;
     public:
         StateMenu();
         ~StateMenu();
