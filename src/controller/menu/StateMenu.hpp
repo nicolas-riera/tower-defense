@@ -8,7 +8,7 @@ class StateMenu : public WindowState
 {
     private:
         std::unique_ptr<StateMenuView> view;
-        std::vector<Button> menuButtons;
+        std::vector<std::unique_ptr<Button>> menuButtons;
     public:
         StateMenu();
         ~StateMenu();
