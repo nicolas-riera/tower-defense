@@ -9,18 +9,20 @@ void StateOptions::init(){
     this->view->init();
     this->view->setContext(this->context);
 
-    this->optionsButtons.push_back(std::make_unique<Button>((this->context->screenWidth / 2) - 75, 350, 150, 50, "Music : ?", []() {
-        
-    }));
-    this->optionsButtons.push_back(std::make_unique<Button>((this->context->screenWidth / 2) - 75, 410, 150, 50, "SFX : ?", []() {
-       
-    }));
+    this->optionsButtons.push_back(std::make_unique<Button>((this->context->screenWidth / 2) - 75, 350, 150, 50, "Music : ?", [this]() {
+        this->optionsButtons[0]->UpdateText("Music : ");
+    }, this->context));
+    this->optionsButtons.push_back(std::make_unique<Button>((this->context->screenWidth / 2) - 75, 410, 150, 50, "SFX : ?", [this]() {
+       this->optionsButtons[1]->UpdateText("SFX : ");
+    }, this->context));
     this->optionsButtons.push_back(std::make_unique<Button>((this->context->screenWidth / 2) - 75, 470, 150, 50, "Credits", [this]() {
         this->context->setState(CREDITS);
-    }));
+    }, this->context));
     this->optionsButtons.push_back(std::make_unique<Button>((this->context->screenWidth / 2) - 75, 550, 150, 50, "Back", [this]() {
         this->context->setState(MENU);
-    }));
+    }, this->context));
+
+    // Check if music and sfx are on or off
 };
 
 void StateOptions::expose(){

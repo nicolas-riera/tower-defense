@@ -22,7 +22,7 @@ void StateScoreboard::init(){
 
     this->scoreboardButtons.push_back(std::make_unique<Button>((this->context->screenWidth / 2) - 75, 550, 150, 50, "Back", [this]() {
         this->context->setState(MENU);
-    }));
+    }, this->context));
 };
 
 void StateScoreboard::expose(){

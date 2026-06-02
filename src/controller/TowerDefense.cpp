@@ -45,9 +45,6 @@ void TowerDefense::updateState()
     case SCOREBOARD:
         this->state = std::make_unique<StateScoreboard>();
         break;
-    case PAUSEMENU:
-        this->state = std::make_unique<StatePauseMenu>();
-        break;
     case GAME:
         this->state = std::make_unique<StateGame>();
         break;
@@ -72,6 +69,9 @@ void TowerDefense::init()
 
     InitWindow(this->screenWidth, this->screenHeight, "Tower Defense");
 
+    this->soundManager = std::make_unique<SoundManager>();
+    this->soundManager->playMusic(0);
+
     SetTargetFPS(60);
 
     this->setState(MENU);
@@ -84,7 +84,8 @@ void TowerDefense::show()
     {
 
         // Delayed state changing to avoid segmentation faults
-        updateState();
+        this->soundManager->update();
+        this->updateState();
 
         BeginDrawing();
 
@@ -97,7 +98,12 @@ void TowerDefense::show()
         EndDrawing();
     }
 
-    this->state.reset(); 
+    this->state.reset();
+    this->soundManager.reset();
 
     CloseWindow();
+};
+
+SoundManager& TowerDefense::getSoundManager(){
+    return *this->soundManager;
 };

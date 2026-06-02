@@ -1,5 +1,6 @@
 #pragma once
 #include <memory>
+#include "SoundManager.hpp"
 #include "EnumStates.hpp"
 #include "WindowState.hpp"
 
@@ -7,6 +8,7 @@ class TowerDefense
 {
     private:
         std::unique_ptr<WindowState> state;
+        std::unique_ptr<SoundManager> soundManager;
         enumStates nextState;
     public:
         const int screenWidth = 1280;
@@ -15,6 +17,7 @@ class TowerDefense
         ~TowerDefense();
         void updateState();
         void setState(enumStates state);
+        SoundManager& getSoundManager();
         void init();
         void show();
 };

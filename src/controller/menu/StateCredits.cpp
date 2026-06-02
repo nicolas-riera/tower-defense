@@ -11,7 +11,7 @@ void StateCredits::init(){
 
     this->creditsButtons.push_back(std::make_unique<Button>((this->context->screenWidth / 2) - 75, 550, 150, 50, "Back", [this]() {
         this->context->setState(OPTIONS);
-    }));
+    }, this->context));
 };
 
 void StateCredits::expose(){
