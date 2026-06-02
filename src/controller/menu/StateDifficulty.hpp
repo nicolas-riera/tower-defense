@@ -1,5 +1,4 @@
 #pragma once
-#include <memory>
 #include "../../view/menu/StateDifficultyView.hpp"
 #include "../WindowState.hpp"
 

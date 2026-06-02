@@ -1,5 +1,4 @@
 #pragma once
-#include <memory>
 #include "../WindowState.hpp"
 #include "../../view/menu/StateOptionsView.hpp"
 #include "raylib.h"

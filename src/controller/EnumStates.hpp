@@ -6,6 +6,7 @@ enum enumStates{
     DIFFICULTY,
     OPTIONS,
     CREDITS,
+    SCOREBOARD,
     PAUSEMENU,
     GAME,
     GAMELOST,
