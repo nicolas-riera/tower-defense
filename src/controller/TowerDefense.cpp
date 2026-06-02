@@ -87,7 +87,8 @@ void TowerDefense::show()
     {
 
         // Delayed state changing to avoid segmentation faults
-        updateState();
+        this->soundManager->update();
+        this->updateState();
 
         BeginDrawing();
 

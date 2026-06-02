@@ -6,7 +6,8 @@ class SoundManager {
     private:
         bool isSfxOn;
         bool isMusicOn;
-        std::vector<Sound> musicList;
+        Music* currentMusic;
+        std::vector<Music> musicList;
         std::vector<Sound> sfxList;
     public: 
         SoundManager();
@@ -17,4 +18,5 @@ class SoundManager {
         void setIsMusicOn(bool isOn);
         void playMusic(int index);
         void playSfx(int index);
+        void update();
 };
