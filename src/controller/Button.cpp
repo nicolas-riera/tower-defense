@@ -1,6 +1,6 @@
 #include "Button.hpp"
 
-Button::Button(float x, float y, float width, float height, const char* text, std::function<void()> callback)
+Button::Button(float x, float y, float width, float height, std::string text, std::function<void()> callback)
     : bounds{ x, y, width, height }, text(text), baseColor(GRAY), currentColor(GRAY), onClick(callback) 
 {
 };
@@ -39,10 +39,14 @@ void Button::Draw() const
     DrawRectangleLinesEx(bounds, 2, DARKGRAY);
 
     int fontSize = 20;
-    int textWidth = MeasureText(text, fontSize);
+    int textWidth = MeasureText(text.c_str(), fontSize);
     
     float textX = bounds.x + (bounds.width / 2) - (textWidth / 2);
     float textY = bounds.y + (bounds.height / 2) - (fontSize / 2);
     
-    DrawText(text, textX, textY, fontSize, BLACK);
+    DrawText(text.c_str(), textX, textY, fontSize, BLACK);
+};
+
+void Button::UpdateText(std::string text) {
+    this->text = text;
 };
