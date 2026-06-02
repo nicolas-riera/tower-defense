@@ -9,11 +9,15 @@ void StateOptions::init(){
     this->view->init();
     this->view->setContext(this->context);
 
-    this->optionsButtons.push_back(std::make_unique<Button>((this->context->screenWidth / 2) - 75, 350, 150, 50, "Music : ?", [this]() {
-        this->optionsButtons[0]->UpdateText("Music : ");
+    auto& soundMgr = this->context->getSoundManager();
+
+    this->optionsButtons.push_back(std::make_unique<Button>((this->context->screenWidth / 2) - 75, 350, 150, 50, soundMgr.getIsMusicOn() ? "Music : On" : "Music : Off", [this]() {
+        this->context->getSoundManager().setIsMusicOn(!this->context->getSoundManager().getIsMusicOn());
+        this->optionsButtons[0]->UpdateText(this->context->getSoundManager().getIsMusicOn() ? "Music : On" : "Music : Off");
     }, this->context));
-    this->optionsButtons.push_back(std::make_unique<Button>((this->context->screenWidth / 2) - 75, 410, 150, 50, "SFX : ?", [this]() {
-       this->optionsButtons[1]->UpdateText("SFX : ");
+    this->optionsButtons.push_back(std::make_unique<Button>((this->context->screenWidth / 2) - 75, 410, 150, 50, soundMgr.getIsSfxOn() ? "SFX : On" : "SFX : Off", [this]() {
+        this->context->getSoundManager().setIsSfxOn(!this->context->getSoundManager().getIsSfxOn());
+        this->optionsButtons[1]->UpdateText(this->context->getSoundManager().getIsSfxOn() ? "SFX : On" : "SFX : Off");
     }, this->context));
     this->optionsButtons.push_back(std::make_unique<Button>((this->context->screenWidth / 2) - 75, 470, 150, 50, "Credits", [this]() {
         this->context->setState(CREDITS);
@@ -23,6 +27,16 @@ void StateOptions::init(){
     }, this->context));
 
     // Check if music and sfx are on or off
+    if (this->context->getSoundManager().getIsMusicOn()) {
+        this->optionsButtons[0]->UpdateText("Music : On");
+    } else {
+        this->optionsButtons[0]->UpdateText("Music : Off");
+    }
+    if (this->context->getSoundManager().getIsSfxOn()) {
+        this->optionsButtons[1]->UpdateText("SFX : On");
+    } else {
+        this->optionsButtons[1]->UpdateText("SFX : Off");
+    }
 };
 
 void StateOptions::expose(){

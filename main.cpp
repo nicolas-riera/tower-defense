@@ -7,4 +7,4 @@ int main(void)
     game->init();
     game->show();
     return 0;
-}
+};
