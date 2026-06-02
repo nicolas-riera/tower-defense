@@ -1,11 +1,9 @@
 #include "StateOptionsView.hpp"
-#include <iostream>
 
 StateOptionsView::StateOptionsView(){};
 
 StateOptionsView::~StateOptionsView(){
     UnloadTexture(this->background);
-    std::cout << "Test" << std::endl;
 };
 
 void StateOptionsView::init(){

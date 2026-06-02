@@ -3,6 +3,7 @@
 enum enumStates{
     NONE,
     MENU,
+    DIFFICULTY,
     OPTIONS,
     CREDITS,
     PAUSEMENU,
