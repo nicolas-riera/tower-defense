@@ -64,6 +64,9 @@ void TowerDefense::init()
 
     InitWindow(this->screenWidth, this->screenHeight, "Tower Defense");
 
+    this->soundManager = std::make_unique<SoundManager>();
+    this->soundManager->playMusic(0);
+
     SetTargetFPS(60);
 
     this->setState(MENU);
