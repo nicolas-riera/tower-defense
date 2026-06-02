@@ -3,8 +3,6 @@
 
 WindowState::WindowState(){};
 
-WindowState::~WindowState(){};
-
 void WindowState::setContext(TowerDefense* context) {
     this->context = context;
 }

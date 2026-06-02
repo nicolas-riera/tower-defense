@@ -2,7 +2,9 @@
 
 StateOptionsView::StateOptionsView(){};
 
-StateOptionsView::~StateOptionsView(){};
+StateOptionsView::~StateOptionsView(){
+    UnloadTexture(this->background);
+};
 
 void StateOptionsView::init(){
     this->background = LoadTexture("assets/img/menu_background.png");

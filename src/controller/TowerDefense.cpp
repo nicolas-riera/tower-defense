@@ -3,8 +3,10 @@
 #include "EnumStates.hpp"
 
 #include "menu/StateMenu.hpp"
+#include "menu/StateDifficulty.hpp"
 #include "menu/StateOptions.hpp"
 #include "menu/StateCredits.hpp"
+#include "menu/StateScoreboard.hpp"
 #include "menu/StatePauseMenu.hpp"
 #include "game/StateGame.hpp"
 #include "game/StateGameLost.hpp"
@@ -31,11 +33,17 @@ void TowerDefense::updateState()
     case MENU:
         this->state = std::make_unique<StateMenu>();
         break;
+    case DIFFICULTY:
+        this->state = std::make_unique<StateDifficulty>();
+        break;
     case OPTIONS:
         this->state = std::make_unique<StateOptions>();
         break;
     case CREDITS:
         this->state = std::make_unique<StateCredits>();
+        break;
+    case SCOREBOARD:
+        this->state = std::make_unique<StateScoreboard>();
         break;
     case PAUSEMENU:
         this->state = std::make_unique<StatePauseMenu>();
@@ -91,6 +99,8 @@ void TowerDefense::show()
 
         EndDrawing();
     }
+
+    this->state.reset(); 
 
     CloseWindow();
 };
