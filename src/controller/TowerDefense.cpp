@@ -89,5 +89,7 @@ void TowerDefense::show()
         EndDrawing();
     }
 
+    this->state.reset(); 
+
     CloseWindow();
 };

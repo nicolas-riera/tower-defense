@@ -2,7 +2,10 @@
 
 StateMenuView::StateMenuView(){};
 
-StateMenuView::~StateMenuView(){};
+StateMenuView::~StateMenuView(){
+    UnloadTexture(this->background);
+    UnloadTexture(this->logo);
+};
 
 void StateMenuView::init(){
     this->background = LoadTexture("assets/img/menu_background.png");

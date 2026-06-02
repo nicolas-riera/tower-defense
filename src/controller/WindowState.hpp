@@ -9,7 +9,7 @@ class WindowState
         TowerDefense* context;
     public:
         WindowState();
-        ~WindowState();
+        virtual ~WindowState() = default;
         void setContext(TowerDefense* context);
         TowerDefense* getContext();
         virtual void init() = 0;
