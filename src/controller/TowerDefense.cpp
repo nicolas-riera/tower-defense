@@ -46,12 +46,6 @@ void TowerDefense::updateState()
     case GAME:
         this->state = std::make_unique<StateGame>();
         break;
-    case GAMELOST:
-        this->state = std::make_unique<StateGameLost>();
-        break;
-    case GAMEWON:
-        this->state = std::make_unique<StateGameWon>();
-        break;
     default:
         break;
     }
