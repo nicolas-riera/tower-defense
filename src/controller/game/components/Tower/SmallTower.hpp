@@ -1,6 +1,9 @@
 #pragma once
+#include "Tower.hpp"
 
-class SmallTower
+class SmallTower : public Tower
 {
-
+    public:
+        SmallTower();
+        ~SmallTower();
 };
