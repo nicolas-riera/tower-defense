@@ -7,14 +7,18 @@ enum States{
     OPTIONS,
     CREDITS,
     SCOREBOARD,
-    PAUSEMENU,
-    GAME,
-    GAMELOST,
-    GAMEWON
+    GAME
 };
 
 enum Difficulty{
     EASY,
-    MEDIUM,
+    NORMAL,
     HARD
+};
+
+enum GameStates{
+    RUNNING,
+    PAUSEMENU,
+    GAMELOST,
+    GAMEWON
 };
