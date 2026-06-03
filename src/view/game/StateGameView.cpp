@@ -2,46 +2,76 @@
 
 StateGameView::StateGameView(){};
 
-StateGameView::~StateGameView(){};
+StateGameView::~StateGameView() {
+    UnloadTexture(textureWall);
+    UnloadTexture(textureBlank);
+    UnloadTexture(texturePath);
+    UnloadTexture(textureStart);
+    UnloadTexture(textureEnd);
+};
 
-void StateGameView::init(){};
+void StateGameView::init() {
+    textureWall = LoadTexture("assets/img/grid/wall.png");
+    textureBlank = LoadTexture("assets/img/grid/blank.png");
+    texturePath = LoadTexture("assets/img/grid/path.png");
+    textureStart = LoadTexture("assets/img/grid/start.png");
+    textureEnd = LoadTexture("assets/img/grid/end.png");
+};
 
 void StateGameView::display(const std::vector<std::unique_ptr<Button>>& buttons) {
     return;
-}
+};
 
-void StateGameView::display(const GridMatrix& grid){
-    int tileSize = 80;
+void StateGameView::display(const GridMatrix& grid) {
+    if (grid.empty() || grid[0].empty()) return;
+
+    float baseTileSize = 128.0f;
+    // Edit to get data from context
+    float windowWidth = 1280.0f;
+    float windowHeight = 720.0f;
+
+    float gridWidth = grid[0].size() * baseTileSize;
+    float gridHeight = grid.size() * baseTileSize;
+
+    float scaleX = windowWidth / gridWidth;
+    float scaleY = windowHeight / gridHeight;
+    float finalScale = (scaleX < scaleY) ? scaleX : scaleY;
+
+    float scaledTileSize = baseTileSize * finalScale;
+
+    float offsetX = (windowWidth - (grid[0].size() * scaledTileSize)) / 2.0f;
+    float offsetY = (windowHeight - (grid.size() * scaledTileSize)) / 2.0f;
 
     for (size_t row = 0; row < grid.size(); ++row) {
         for (size_t col = 0; col < grid[row].size(); ++col) {
             
-            int posX = col * tileSize;
-            int posY = row * tileSize;
-            Color tileColor = GRAY;
+            float posX = offsetX + (static_cast<float>(col) * scaledTileSize);
+            float posY = offsetY + (static_cast<float>(row) * scaledTileSize);
+            
+            Texture2D currentTexture;
 
             switch (grid[row][col]) {
                 case 0: 
-                    tileColor = DARKGRAY;
+                    currentTexture = textureWall;
                     break; 
                 case 1:
-                    tileColor = GREEN;
+                    currentTexture = textureBlank;
                     break; 
                 case 2:
-                    tileColor = LIGHTGRAY;
+                    currentTexture = texturePath;
                     break; 
                 case 3:
-                    tileColor = ORANGE;
+                    currentTexture = textureStart;
                     break; 
                 case 4:
-                    tileColor = RED;
+                    currentTexture = textureEnd;
                     break; 
                 default:
-                    tileColor = WHITE;
+                    currentTexture = textureWall;
                     break;
             }
 
-            DrawRectangle(posX, posY, tileSize - 1, tileSize - 1, tileColor);
+            DrawTextureEx(currentTexture, Vector2{posX, posY}, 0.0f, finalScale, WHITE);
         }
     }
 };

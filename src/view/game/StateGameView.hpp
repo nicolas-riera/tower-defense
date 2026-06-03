@@ -1,9 +1,16 @@
 #pragma once
 #include "../WindowView.hpp"
 #include "../../controller/game/components/Stage.hpp"
+#include "raylib.h"
 
 class StateGameView: public WindowView
 {
+    private:
+        Texture2D textureBlank;
+        Texture2D textureWall;
+        Texture2D texturePath;
+        Texture2D textureStart;
+        Texture2D textureEnd;
     public:
         StateGameView();
         ~StateGameView();
