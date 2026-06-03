@@ -1,6 +1,6 @@
 #pragma once
 
-enum enumStates{
+enum States{
     NONE,
     MENU,
     DIFFICULTY,
@@ -11,4 +11,10 @@ enum enumStates{
     GAME,
     GAMELOST,
     GAMEWON
+};
+
+enum Difficulty{
+    EASY,
+    MEDIUM,
+    HARD
 };

@@ -10,7 +10,7 @@ void StateDifficulty::init(){
     this->view->setContext(this->context);
 
     this->difficultyButtons.push_back(std::make_unique<Button>((this->context->screenWidth / 2) - 75, 350, 150, 50, "Easy", []() {
-        
+        // this->
     }, this->context));
     this->difficultyButtons.push_back(std::make_unique<Button>((this->context->screenWidth / 2) - 75, 410, 150, 50, "Normal", []() {
        
