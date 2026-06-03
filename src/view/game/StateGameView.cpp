@@ -4,8 +4,9 @@ StateGameView::StateGameView(){};
 
 StateGameView::~StateGameView() {
     // Grid
-    UnloadTexture(textureWall);
+    UnloadTexture(textureBackground);
     UnloadTexture(textureBlank);
+    UnloadTexture(textureWall);
     UnloadTexture(texturePath);
     UnloadTexture(textureStart);
     UnloadTexture(textureEnd);
@@ -13,8 +14,9 @@ StateGameView::~StateGameView() {
 
 void StateGameView::init() {
     // Grid
-    textureWall = LoadTexture("assets/img/grid/wall.png");
+    textureBackground = LoadTexture("assets/img/grid/bg.png");
     textureBlank = LoadTexture("assets/img/grid/blank.png");
+    textureWall = LoadTexture("assets/img/grid/wall.png");
     texturePath = LoadTexture("assets/img/grid/path.png");
     textureStart = LoadTexture("assets/img/grid/start.png");
     textureEnd = LoadTexture("assets/img/grid/end.png");
@@ -25,6 +27,9 @@ void StateGameView::display(const std::vector<std::unique_ptr<Button>>& buttons)
 };
 
 void StateGameView::display(const GridMatrix& grid) {
+
+    DrawTexture(textureBackground, 0, 0, WHITE);
+
     if (grid.empty() || grid[0].empty()) return;
 
     float baseTileSize = 128.0f;
@@ -56,9 +61,6 @@ void StateGameView::display(const GridMatrix& grid) {
                 case 0: 
                     currentTexture = textureWall;
                     break; 
-                case 1:
-                    currentTexture = textureBlank;
-                    break; 
                 case 2:
                     currentTexture = texturePath;
                     break; 
@@ -69,7 +71,7 @@ void StateGameView::display(const GridMatrix& grid) {
                     currentTexture = textureEnd;
                     break; 
                 default:
-                    currentTexture = textureWall;
+                    currentTexture = textureBlank;
                     break;
             }
 

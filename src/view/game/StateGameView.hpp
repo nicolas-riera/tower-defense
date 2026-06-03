@@ -6,6 +6,7 @@
 class StateGameView: public WindowView
 {
     private:
+        Texture2D textureBackground;
         Texture2D textureBlank;
         Texture2D textureWall;
         Texture2D texturePath;
