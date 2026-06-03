@@ -1,5 +1,4 @@
 #include "StateMenu.hpp"
-#include "../EnumStates.hpp"
 #include <cstdlib>
 
 StateMenu::StateMenu(){};

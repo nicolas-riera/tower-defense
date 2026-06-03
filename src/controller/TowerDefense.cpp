@@ -1,6 +1,4 @@
 #include "TowerDefense.hpp"
-#include "WindowState.hpp"
-#include "EnumStates.hpp"
 
 #include "menu/StateMenu.hpp"
 #include "menu/StateDifficulty.hpp"
@@ -18,7 +16,7 @@ TowerDefense::TowerDefense() {};
 
 TowerDefense::~TowerDefense() {};
 
-void TowerDefense::setState(enumStates state)
+void TowerDefense::setState(States state)
 {
     this->nextState = state;
 }
@@ -48,12 +46,6 @@ void TowerDefense::updateState()
     case GAME:
         this->state = std::make_unique<StateGame>();
         break;
-    case GAMELOST:
-        this->state = std::make_unique<StateGameLost>();
-        break;
-    case GAMEWON:
-        this->state = std::make_unique<StateGameWon>();
-        break;
     default:
         break;
     }
@@ -75,6 +67,7 @@ void TowerDefense::init()
     SetTargetFPS(60);
 
     this->setState(MENU);
+
 };
 
 void TowerDefense::show()
