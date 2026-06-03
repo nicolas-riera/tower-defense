@@ -1,5 +1,6 @@
 #pragma once
 #include "../WindowView.hpp"
+#include "../../controller/game/components/Stage.hpp"
 
 class StateGameView: public WindowView
 {
@@ -8,5 +9,5 @@ class StateGameView: public WindowView
         ~StateGameView();
         void init();
         void display(const std::vector<std::unique_ptr<Button>>& buttons) override;
-        void display();
+        void display(const GridMatrix& grid);
 };
