@@ -33,9 +33,8 @@ void StateGameView::display(const GridMatrix& grid) {
     if (grid.empty() || grid[0].empty()) return;
 
     float baseTileSize = 128.0f;
-    // Temp, edit to get data from context
-    float windowWidth = 1280.0f;
-    float windowHeight = 720.0f;
+    float windowWidth = this->context->screenWidth;
+    float windowHeight = this->context->screenHeight;
 
     float gridWidth = grid[0].size() * baseTileSize;
     float gridHeight = grid.size() * baseTileSize;
