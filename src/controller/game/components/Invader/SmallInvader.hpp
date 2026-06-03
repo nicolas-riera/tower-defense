@@ -1,6 +1,9 @@
 #pragma once
+#include "Invader.hpp"
 
-class SmallInvader
+class SmallInvader : public Invader
 {
-
+    public:
+        SmallInvader(short difficultyFactor);
+        ~SmallInvader();
 };
