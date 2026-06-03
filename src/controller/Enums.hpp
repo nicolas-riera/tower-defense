@@ -18,3 +18,13 @@ enum Difficulty{
     MEDIUM,
     HARD
 };
+
+enum Event{
+    CLICK,
+    SHOOT,
+    SPAWN,
+    DEADINVADER,
+    BUILD,
+    GAMEOVER,
+    SUCCESS
+};
