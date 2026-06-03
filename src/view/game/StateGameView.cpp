@@ -3,6 +3,7 @@
 StateGameView::StateGameView(){};
 
 StateGameView::~StateGameView() {
+    // Grid
     UnloadTexture(textureWall);
     UnloadTexture(textureBlank);
     UnloadTexture(texturePath);
@@ -11,6 +12,7 @@ StateGameView::~StateGameView() {
 };
 
 void StateGameView::init() {
+    // Grid
     textureWall = LoadTexture("assets/img/grid/wall.png");
     textureBlank = LoadTexture("assets/img/grid/blank.png");
     texturePath = LoadTexture("assets/img/grid/path.png");
@@ -26,7 +28,7 @@ void StateGameView::display(const GridMatrix& grid) {
     if (grid.empty() || grid[0].empty()) return;
 
     float baseTileSize = 128.0f;
-    // Edit to get data from context
+    // Temp, edit to get data from context
     float windowWidth = 1280.0f;
     float windowHeight = 720.0f;
 
