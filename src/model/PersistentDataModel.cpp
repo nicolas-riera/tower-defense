@@ -9,7 +9,9 @@ namespace fs = std::filesystem;
 PersistentDataModel::PersistentDataModel(){};
 PersistentDataModel::~PersistentDataModel(){};
 
-void PersistentDataModel::save(short difficulty, int score, const std::string& username) 
+// Scores
+
+void PersistentDataModel::saveScore(short difficulty, int score, const std::string& username) 
 {
     std::string directory = "gamedata";
     std::string filepath = directory + "/scores.json";
@@ -18,7 +20,7 @@ void PersistentDataModel::save(short difficulty, int score, const std::string& u
         fs::create_directories(directory);
     }
 
-    std::vector<PlayerScore> currentScores = load();
+    std::vector<PlayerScore> currentScores = loadScores();
     currentScores.push_back({difficulty, score, username});
 
     picojson::array jArray;
@@ -36,7 +38,7 @@ void PersistentDataModel::save(short difficulty, int score, const std::string& u
     }
 }
 
-std::vector<PersistentDataModel::PlayerScore> PersistentDataModel::load() 
+std::vector<PersistentDataModel::PlayerScore> PersistentDataModel::loadScores() 
 {
     std::vector<PlayerScore> scores;
     std::string filepath = "gamedata/scores.json";
@@ -75,4 +77,58 @@ std::vector<PersistentDataModel::PlayerScore> PersistentDataModel::load()
     }
 
     return scores;
+}
+
+// Config
+
+void PersistentDataModel::saveConfig(const Config& config)
+{
+    std::string directory = "gamedata";
+    std::string filepath = directory + "/config.json";
+
+    if (!fs::exists(directory)) {
+        fs::create_directories(directory);
+    }
+
+    picojson::object jItem;
+    jItem["music"] = picojson::value(config.music);
+    jItem["sfx"] = picojson::value(config.sfx);
+
+    std::ofstream file(filepath);
+    if (file.is_open()) {
+        file << picojson::value(jItem).serialize(true);
+    }
+}
+
+PersistentDataModel::Config PersistentDataModel::loadConfig()
+{
+    Config config;
+    std::string filepath = "gamedata/config.json";
+
+    if (!fs::exists(filepath)) {
+        return config;
+    }
+
+    std::ifstream file(filepath);
+    if (!file.is_open()) {
+        return config;
+    }
+
+    picojson::value v;
+    std::string err = picojson::parse(v, file);
+    if (!err.empty()) {
+        return config;
+    }
+
+    if (v.is<picojson::object>()) {
+        const picojson::object& jItem = v.get<picojson::object>();
+        if (jItem.count("music")) {
+            config.music = jItem.at("music").get<bool>();
+        }
+        if (jItem.count("sfx")) {
+            config.sfx = jItem.at("sfx").get<bool>();
+        }
+    }
+
+    return config;
 }

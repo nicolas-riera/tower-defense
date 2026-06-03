@@ -3,10 +3,12 @@
 #include "SoundManager.hpp"
 #include "Enums.hpp"
 #include "WindowState.hpp"
+#include "../model/PersistentDataModel.hpp"
 
 class TowerDefense
 {
     private:
+        PersistentDataModel dataModel;
         std::unique_ptr<WindowState> state;
         std::unique_ptr<SoundManager> soundManager;
         States nextState;

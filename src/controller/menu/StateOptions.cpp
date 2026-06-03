@@ -23,6 +23,13 @@ void StateOptions::init(){
         this->context->setState(CREDITS);
     }, this->context));
     this->optionsButtons.push_back(std::make_unique<Button>((this->context->screenWidth / 2) - 75, 550, 150, 50, "Back", [this]() {
+        
+        // Save when backing out
+        PersistentDataModel::Config config;
+        config.music = this->context->getSoundManager().getIsMusicOn();
+        config.sfx = this->context->getSoundManager().getIsSfxOn();
+        dataModel.saveConfig(config);
+
         this->context->setState(MENU);
     }, this->context));
 

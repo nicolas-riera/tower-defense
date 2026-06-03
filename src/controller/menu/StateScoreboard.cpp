@@ -10,7 +10,7 @@ void StateScoreboard::init(){
     this->view->init();
     this->view->setContext(this->context);
 
-    this->scores = this->dataModel.load();
+    this->scores = this->dataModel.loadScores();
 
     // Scoreboard sorting
     std::sort(this->scores.begin(), this->scores.end(), [](const PersistentDataModel::PlayerScore& a, const PersistentDataModel::PlayerScore& b) {

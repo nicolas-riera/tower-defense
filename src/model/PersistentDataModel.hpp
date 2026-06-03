@@ -16,9 +16,18 @@ class PersistentDataModel
             std::string username;
         };
 
+        struct Config {
+            bool music = true;
+            bool sfx = true;
+        };
+
         PersistentDataModel();
         ~PersistentDataModel();
 
-        void save(short difficulty, int score, const std::string& username);
-        std::vector<PlayerScore> load();
+        void saveScore(short difficulty, int score, const std::string& username);
+        std::vector<PlayerScore> loadScores();
+
+        void saveConfig(const Config& config);
+        Config loadConfig();       
+
 };

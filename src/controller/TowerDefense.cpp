@@ -61,7 +61,13 @@ void TowerDefense::init()
 
     InitWindow(this->screenWidth, this->screenHeight, "Tower Defense");
 
+    PersistentDataModel::Config config = dataModel.loadConfig();
+
     this->soundManager = std::make_unique<SoundManager>();
+
+    this->soundManager->setIsMusicOn(config.music);
+    this->soundManager->setIsSfxOn(config.sfx);
+
     this->soundManager->playMusic(0);
 
     SetTargetFPS(60);
