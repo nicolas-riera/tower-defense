@@ -22,3 +22,13 @@ enum GameStates{
     GAMELOST,
     GAMEWON
 };
+
+enum Event{
+    CLICK,
+    SHOOT,
+    SPAWN,
+    DEADINVADER,
+    BUILD,
+    GAMEOVER,
+    SUCCESS
+};
