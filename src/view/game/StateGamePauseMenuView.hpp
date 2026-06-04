@@ -8,5 +8,5 @@ class StateGamePauseMenuView: public GameWindowView
         StateGamePauseMenuView();
         ~StateGamePauseMenuView();
         void init();
-        void display();
+        void display(const ButtonsVector& buttons);
 };

@@ -20,6 +20,6 @@ class StateGameView: public WindowView
         StateGameView();
         ~StateGameView();
         void init();
-        void display(const std::vector<std::unique_ptr<Button>>& buttons);
+        void display(const ButtonsVector& buttons);
         void display(const GridMatrix& grid, const GameStats& gameStats);
 };

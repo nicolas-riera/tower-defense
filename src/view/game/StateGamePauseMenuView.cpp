@@ -9,7 +9,8 @@ void StateGamePauseMenuView::init() {
 
 };
 
-void StateGamePauseMenuView::display() {
-
+void StateGamePauseMenuView::display(const ButtonsVector& buttons) {
+    // Dark layer
+    DrawRectangle(0, 0, GetScreenWidth(), GetScreenHeight(), { 0, 0, 0, 180 });
 };
 

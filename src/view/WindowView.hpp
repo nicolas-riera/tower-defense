@@ -8,5 +8,5 @@ class WindowView {
     public:
         void setContext(TowerDefense* context);
         virtual void init() = 0;
-        virtual void display(const std::vector<std::unique_ptr<Button>>& buttons) = 0;
+        virtual void display(const ButtonsVector& buttons) = 0;
 };

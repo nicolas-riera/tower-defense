@@ -9,7 +9,7 @@ class StateOptions : public WindowState
     private:
         PersistentDataModel dataModel;
         std::unique_ptr<StateOptionsView> view;
-        std::vector<std::unique_ptr<Button>> optionsButtons;
+        ButtonsVector optionsButtons;
     public:
         StateOptions();
         ~StateOptions();

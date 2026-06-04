@@ -6,7 +6,7 @@ class StateScoreboard : public WindowState
 {
     private:
         std::unique_ptr<StateScoreboardView> view;
-        std::vector<std::unique_ptr<Button>> scoreboardButtons;
+        ButtonsVector scoreboardButtons;
         PersistentDataModel dataModel;
         std::vector<PersistentDataModel::PlayerScore> scores;
         float scrollOffset;

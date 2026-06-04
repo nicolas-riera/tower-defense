@@ -8,5 +8,5 @@ class StateGameRunningView: public GameWindowView
         StateGameRunningView();
         ~StateGameRunningView();
         void init();
-        void display();
+        void display(const ButtonsVector& buttons);
 };

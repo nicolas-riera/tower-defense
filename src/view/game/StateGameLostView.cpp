@@ -9,7 +9,7 @@ void StateGameLostView::init() {
 
 };
 
-void StateGameLostView::display() {
+void StateGameLostView::display(const ButtonsVector& buttons) {
 
 };
 

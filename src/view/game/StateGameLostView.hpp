@@ -8,5 +8,5 @@ class StateGameLostView: public GameWindowView
         StateGameLostView();
         ~StateGameLostView();
         void init();
-        void display();
+        void display(const ButtonsVector& buttons);
 };

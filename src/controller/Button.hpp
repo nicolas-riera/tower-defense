@@ -20,3 +20,5 @@ public:
     void Draw() const;
     void UpdateText(std::string text);
 };
+
+using ButtonsVector = std::vector<std::unique_ptr<Button>>;
