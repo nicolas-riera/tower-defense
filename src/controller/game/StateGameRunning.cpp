@@ -11,5 +11,5 @@ void StateGameRunning::init(){
 };
 
 void StateGameRunning::expose(){
-
+    this->view->display();
 };

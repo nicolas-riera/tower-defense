@@ -21,8 +21,5 @@ class StateGameView: public WindowView
         ~StateGameView();
         void init();
         void display(const std::vector<std::unique_ptr<Button>>& buttons);
-        void display(const GridMatrix& grid, 
-                     const GameStats& gameStats, 
-                     std::vector<std::unique_ptr<Tower>>& towers, 
-                     std::vector<std::unique_ptr<Invader>>& invaders);
+        void display(const GridMatrix& grid, const GameStats& gameStats);
 };
