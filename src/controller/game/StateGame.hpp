@@ -1,8 +1,10 @@
 #pragma once
 #include "../WindowState.hpp"
+#include "GameWindowState.hpp"
 #include "../../view/game/StateGameView.hpp"
 #include "components/Stage.hpp"
 #include "components/GameStats.hpp"
+#include "../Enums.hpp"
 
 class StateGame : public WindowState
 {
@@ -12,9 +14,13 @@ class StateGame : public WindowState
         std::vector<std::unique_ptr<Tower>> towers;
         std::vector<std::unique_ptr<Invader>> invaders;
         std::unique_ptr<GameStats> gameStats;
+        std::unique_ptr<GameWindowState> state;
+        GameStates nextState;
     public:
         StateGame();
         ~StateGame();
+        void updateState();
+        void setState(GameStates state);
         void init();
         void expose();
 };

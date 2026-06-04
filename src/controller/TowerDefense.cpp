@@ -5,7 +5,6 @@
 #include "menu/StateOptions.hpp"
 #include "menu/StateCredits.hpp"
 #include "menu/StateScoreboard.hpp"
-#include "menu/StatePauseMenu.hpp"
 #include "game/StateGame.hpp"
 #include "game/StateGameLost.hpp"
 #include "game/StateGameWon.hpp"
