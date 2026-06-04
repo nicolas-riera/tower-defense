@@ -11,5 +11,10 @@ void StateGameLost::init(){
 };
 
 void StateGameLost::expose(){
+
+    for (auto& btn : this->gameLostButtons) {
+        btn->Update();
+    };
+
     this->view->display(this->gameLostButtons);
 };

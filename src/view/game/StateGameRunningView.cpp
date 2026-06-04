@@ -19,6 +19,8 @@ void StateGameRunningView::init() {
 void StateGameRunningView::display(const ButtonsVector& buttons){};
 
 void StateGameRunningView::display(const ButtonsVector& buttons, const std::vector<std::unique_ptr<Tower>>& towers, const std::vector<std::unique_ptr<Invader>>& invaders) {
-
+    for (auto& btn : buttons) {
+        btn->Draw();
+    };
 };
 

@@ -10,6 +10,8 @@ void StateGameLostView::init() {
 };
 
 void StateGameLostView::display(const ButtonsVector& buttons) {
-
+    for (auto& btn : buttons) {
+        btn->Draw();
+    };
 };
 
