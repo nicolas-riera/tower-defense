@@ -4,6 +4,6 @@
 class SmallInvader : public Invader
 {
     public:
-        SmallInvader(short difficultyFactor);
+        SmallInvader(short x, short y, short difficultyFactor);
         ~SmallInvader();
 };

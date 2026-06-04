@@ -1,6 +1,6 @@
 #include "Invader.hpp"
 
-Invader::Invader(short life, short speed) : life(life), speed(speed){}
+Invader::Invader(short x, short y, short life, short speed) : x(x), y(y), life(life), speed(speed){}
 
 Invader::~Invader(){}
 
