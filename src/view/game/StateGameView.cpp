@@ -26,10 +26,12 @@ void StateGameView::display(const std::vector<std::unique_ptr<Button>>& buttons)
     return;
 };
 
-void StateGameView::display(const GridMatrix& grid) {
+void StateGameView::display(const GridMatrix& grid, const GameStats& gameStats) {
 
+    // Background drawing
     DrawTexture(textureBackground, 0, 0, WHITE);
 
+    // Grid drawing
     if (grid.empty() || grid[0].empty()) return;
 
     float baseTileSize = 128.0f;
@@ -77,4 +79,8 @@ void StateGameView::display(const GridMatrix& grid) {
             DrawTextureEx(currentTexture, Vector2{posX, posY}, 0.0f, finalScale, WHITE);
         }
     }
+
+    // UI drawing
+
+    
 };
