@@ -2,12 +2,14 @@
 #include "../WindowState.hpp"
 #include "../../view/game/StateGameView.hpp"
 #include "components/Stage.hpp"
+#include "components/GameStats.hpp"
 
 class StateGame : public WindowState
 {
     private:
         std::unique_ptr<StateGameView> view;
         std::unique_ptr<Stage> stage;
+        std::unique_ptr<GameStats> gameStats;
     public:
         StateGame();
         ~StateGame();

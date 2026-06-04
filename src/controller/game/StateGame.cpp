@@ -12,8 +12,10 @@ void StateGame::init(){
     this->stage = std::make_unique<Stage>();
     this->stage->init(this->context->difficulty);
 
+    this->gameStats = std::make_unique<GameStats>();
+
 };
 
 void StateGame::expose(){
-    this->view->display(this->stage->grid);
+    this->view->display(this->stage->grid, *this->gameStats);
 };

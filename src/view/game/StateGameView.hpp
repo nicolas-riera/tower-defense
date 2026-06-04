@@ -1,6 +1,7 @@
 #pragma once
 #include "../WindowView.hpp"
 #include "../../controller/game/components/Stage.hpp"
+#include "../../controller/game/components/GameStats.hpp"
 #include "raylib.h"
 
 class StateGameView: public WindowView
@@ -16,6 +17,6 @@ class StateGameView: public WindowView
         StateGameView();
         ~StateGameView();
         void init();
-        void display(const std::vector<std::unique_ptr<Button>>& buttons) override;
-        void display(const GridMatrix& grid);
+        void display(const std::vector<std::unique_ptr<Button>>& buttons);
+        void display(const GridMatrix& grid, const GameStats& gameStats);
 };
