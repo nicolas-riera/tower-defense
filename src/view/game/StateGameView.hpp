@@ -2,6 +2,9 @@
 #include "../WindowView.hpp"
 #include "../../controller/game/components/Stage.hpp"
 #include "../../controller/game/components/GameStats.hpp"
+#include "../../controller/game/components/Tower/Tower.hpp"
+#include "../../controller/game/components/Invader/Invader.hpp"
+
 #include "raylib.h"
 
 class StateGameView: public WindowView
