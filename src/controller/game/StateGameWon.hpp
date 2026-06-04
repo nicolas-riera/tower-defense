@@ -7,6 +7,7 @@ class StateGameWon : public GameWindowState
 {
     private:
         std::unique_ptr<StateGameWonView> view;
+        ButtonsVector gameWonButtons;
     public:
         StateGameWon();
         ~StateGameWon();
