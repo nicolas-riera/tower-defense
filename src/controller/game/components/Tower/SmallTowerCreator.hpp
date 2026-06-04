@@ -8,5 +8,5 @@ class SmallTowerCreator : public TowerCreator
     public:
         SmallTowerCreator();
         ~SmallTowerCreator();
-        std::shared_ptr<Tower> createTower();
+        std::unique_ptr<Tower> createTower() override;
 };

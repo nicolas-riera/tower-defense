@@ -8,5 +8,5 @@ class BigInvaderCreator : public InvaderCreator
     public:
         BigInvaderCreator();
         ~BigInvaderCreator();
-        std::shared_ptr<Invader> createInvader(short x, short y, short difficultyIndex);
+        std::unique_ptr<Invader> createInvader(short x, short y, short difficultyIndex) override;
 };

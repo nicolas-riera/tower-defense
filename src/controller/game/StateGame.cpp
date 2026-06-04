@@ -50,8 +50,13 @@ void StateGame::init(){
 
     this->stage = std::make_unique<Stage>();
     this->stage->init(this->context->difficulty);
-
     this->gameStats = std::make_unique<GameStats>();
+
+    this->smallTowerCreator = std::make_unique<SmallTowerCreator>();
+    this->bigTowerCreator = std::make_unique<BigTowerCreator>();
+    this->smallInvaderCreator = std::make_unique<SmallInvaderCreator>();
+    this->bigInvaderCreator = std::make_unique<BigInvaderCreator>();
+    this->invaders.push_back(smallInvaderCreator->createInvader(40,40,1));
 
     this->setState(RUNNING);
 };
