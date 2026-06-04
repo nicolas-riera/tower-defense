@@ -8,7 +8,9 @@ class Invader : public Subscriber, public Publisher
         short life;
         short speed;
     public:
-        Invader(short life, short speed);
+        short x;
+        short y;
+        Invader(short x, short y, short life, short speed);
         ~Invader();
         void update(Event event);
 };

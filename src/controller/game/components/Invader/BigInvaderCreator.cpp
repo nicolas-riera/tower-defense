@@ -4,6 +4,6 @@ BigInvaderCreator::BigInvaderCreator(){}
 
 BigInvaderCreator::~BigInvaderCreator(){}
 
-std::shared_ptr<Invader> BigInvaderCreator::createInvader(){
-    return std::make_unique<BigInvader>();
+std::shared_ptr<Invader> BigInvaderCreator::createInvader(short x, short y, short difficultyIndex){
+    return std::make_unique<BigInvader>(x, y, difficultyIndex);
 }

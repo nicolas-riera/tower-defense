@@ -26,7 +26,10 @@ void StateGameView::display(const std::vector<std::unique_ptr<Button>>& buttons)
     return;
 };
 
-void StateGameView::display(const GridMatrix& grid, const GameStats& gameStats) {
+void StateGameView::display(const GridMatrix& grid, 
+                            const GameStats& gameStats, 
+                            std::vector<std::unique_ptr<Tower>>& towers, 
+                            std::vector<std::unique_ptr<Invader>>& invaders) {
 
     // Background drawing
     DrawTexture(textureBackground, 0, 0, WHITE);

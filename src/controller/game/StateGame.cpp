@@ -17,5 +17,5 @@ void StateGame::init(){
 };
 
 void StateGame::expose(){
-    this->view->display(this->stage->grid, *this->gameStats);
+    this->view->display(this->stage->grid, *this->gameStats, this->towers, this->invaders);
 };
