@@ -9,6 +9,8 @@ class StateGame : public WindowState
     private:
         std::unique_ptr<StateGameView> view;
         std::unique_ptr<Stage> stage;
+        std::vector<std::unique_ptr<Tower>> towers;
+        std::vector<std::unique_ptr<Invader>> invaders;
         std::unique_ptr<GameStats> gameStats;
     public:
         StateGame();

@@ -1,3 +1,5 @@
+#pragma once
+
 struct GameStats
     {
         int score = 0;
