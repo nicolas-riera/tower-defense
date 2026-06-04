@@ -29,6 +29,8 @@ class StateGame : public WindowState
         ~StateGame();
         void updateState();
         void setState(GameStates state);
+        std::vector<std::unique_ptr<Tower>>& getTowers();
+        std::vector<std::unique_ptr<Invader>>& getInvaders();
         void init();
         void expose();
 };

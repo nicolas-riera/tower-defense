@@ -9,11 +9,6 @@ StateGame::StateGame(){};
 
 StateGame::~StateGame(){};
 
-void StateGame::setState(GameStates state)
-{
-    this->nextState = state;
-}
-
 void StateGame::updateState()
 {
 
@@ -42,6 +37,19 @@ void StateGame::updateState()
     this->nextState = WAIT;
 }
 
+void StateGame::setState(GameStates state)
+{
+    this->nextState = state;
+}
+
+std::vector<std::unique_ptr<Tower>>& StateGame::getTowers(){
+    return this->towers;
+}
+
+std::vector<std::unique_ptr<Invader>>& StateGame::getInvaders(){
+    return this->invaders;
+}
+
 void StateGame::init(){
 
     this->view = std::make_unique<StateGameView>();
@@ -57,6 +65,7 @@ void StateGame::init(){
     this->smallInvaderCreator = std::make_unique<SmallInvaderCreator>();
     this->bigInvaderCreator = std::make_unique<BigInvaderCreator>();
     this->invaders.push_back(smallInvaderCreator->createInvader(40,40,1));
+    this->towers.push_back(smallTowerCreator->createTower());
 
     this->setState(RUNNING);
 };
