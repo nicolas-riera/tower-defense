@@ -11,5 +11,5 @@ void StateGameLost::init(){
 };
 
 void StateGameLost::expose(){
-    this->view->display();
+    this->view->display(this->gameLostButtons);
 };

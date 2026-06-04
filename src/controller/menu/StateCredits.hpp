@@ -6,7 +6,7 @@ class StateCredits : public WindowState
 {
     private:
         std::unique_ptr<StateCreditsView> view;
-        std::vector<std::unique_ptr<Button>> creditsButtons;
+        ButtonsVector creditsButtons;
     public:
         StateCredits();
         ~StateCredits();

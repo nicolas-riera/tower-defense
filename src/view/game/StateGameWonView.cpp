@@ -9,7 +9,7 @@ void StateGameWonView::init() {
 
 };
 
-void StateGameWonView::display() {
+void StateGameWonView::display(const ButtonsVector& buttons) {
 
 };
 

@@ -7,6 +7,7 @@ class StateGameLost : public GameWindowState
 {
     private:
         std::unique_ptr<StateGameLostView> view;
+        ButtonsVector gameLostButtons;
     public:
         StateGameLost();
         ~StateGameLost();

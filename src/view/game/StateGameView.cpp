@@ -22,7 +22,7 @@ void StateGameView::init() {
     textureEnd = LoadTexture("assets/img/grid/end.png");
 };
 
-void StateGameView::display(const std::vector<std::unique_ptr<Button>>& buttons) {
+void StateGameView::display(const ButtonsVector& buttons) {
     return;
 };
 

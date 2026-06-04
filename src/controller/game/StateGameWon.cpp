@@ -11,5 +11,5 @@ void StateGameWon::init(){
 };
 
 void StateGameWon::expose(){
-    this->view->display();
+    this->view->display(this->gameWonButtons);
 };

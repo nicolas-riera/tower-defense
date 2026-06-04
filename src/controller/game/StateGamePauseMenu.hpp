@@ -7,6 +7,7 @@ class StateGamePauseMenu : public GameWindowState
 {
     private:
         std::unique_ptr<StateGamePauseMenuView> view;
+        ButtonsVector gamePauseMenuButtons;
     public:
         StateGamePauseMenu();
         ~StateGamePauseMenu();
