@@ -82,5 +82,17 @@ void StateGameView::display(const GridMatrix& grid, const GameStats& gameStats) 
 
     // UI drawing
 
-    
+    std::string scoreText = "Score: " + std::to_string(gameStats.score);
+    std::string balanceText = "Gold: " + std::to_string(gameStats.balance);
+    std::string waveText = "Wave: " + std::to_string(gameStats.wavecounter);
+
+    std::string fullStatsStr = scoreText + "   |   " + balanceText + "   |   " + waveText;
+
+    int posX = 30;
+    int posY = 675; 
+    int fontSize = 24;
+
+    // Text shadow drawing
+    DrawText(fullStatsStr.c_str(), posX + 2, posY + 2, fontSize, BLACK);
+    DrawText(fullStatsStr.c_str(), posX, posY, fontSize, RAYWHITE);
 };
