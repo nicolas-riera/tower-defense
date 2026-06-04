@@ -11,5 +11,10 @@ void StateGameWon::init(){
 };
 
 void StateGameWon::expose(){
+
+    for (auto& btn : this->gameWonButtons) {
+        btn->Update();
+    };
+
     this->view->display(this->gameWonButtons);
 };

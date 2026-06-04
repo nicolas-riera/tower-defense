@@ -11,5 +11,10 @@ void StateGamePauseMenu::init(){
 };
 
 void StateGamePauseMenu::expose(){
+
+    for (auto& btn : this->gamePauseMenuButtons) {
+        btn->Update();
+    };
+
     this->view->display(this->gamePauseMenuButtons);
 };

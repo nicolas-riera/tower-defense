@@ -10,6 +10,8 @@ void StateGameWonView::init() {
 };
 
 void StateGameWonView::display(const ButtonsVector& buttons) {
-
+    for (auto& btn : buttons) {
+        btn->Draw();
+    };
 };
 
