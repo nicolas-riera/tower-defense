@@ -5,5 +5,5 @@
 class TowerCreator
 {
     public:
-        virtual std::unique_ptr<Tower> createTower() = 0;
+        virtual std::unique_ptr<Tower> createTower(short xMatrix, short yMatrix) = 0;
 };

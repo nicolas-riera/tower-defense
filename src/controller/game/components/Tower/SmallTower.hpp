@@ -4,6 +4,6 @@
 class SmallTower : public Tower
 {
     public:
-        SmallTower();
+        SmallTower(short xMatrix, short yMatrix);
         ~SmallTower();
 };
