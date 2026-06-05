@@ -11,7 +11,7 @@ StateGameRunningBaseView::~StateGameRunningBaseView(){
 
 void StateGameRunningBaseView::init() {
     textureSmallTower = LoadTexture("assets/img/towers/small_tower.png");
-    textureBigTower = LoadTexture("assets/img/towers/small_tower.png"); 
+    textureBigTower = LoadTexture("assets/img/towers/big_tower.png"); 
     textureSmallInvader = LoadTexture("assets/img/invaders/small_invader_sprite.png");
     textureBigInvader = LoadTexture("assets/img/invaders/big_invader_sprite.png");
 };
@@ -22,5 +22,22 @@ void StateGameRunningBaseView::display(const ButtonsVector& buttons, const std::
     for (auto& btn : buttons) {
         btn->Draw();
     };
+    for (auto& tower : towers) {
+        switch (tower->getType())
+        {
+        case SMALLTOWER:
+            DrawTexture(textureSmallTower, tower->getXMatrix()*128, tower->getYMatrix()*128, WHITE);
+            break;
+        case BIGTOWER:
+            DrawTexture(textureBigTower, tower->getXMatrix()*128, tower->getYMatrix()*128, WHITE);
+            break;
+        default:
+            break;
+        }
+    };
+/*     for (auto& invader : invaders) {
+        std::cout << invader->x << "\n";
+        std::cout << invader->y << std::endl;
+    }; */
 };
 
