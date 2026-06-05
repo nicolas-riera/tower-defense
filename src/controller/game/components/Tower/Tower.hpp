@@ -8,8 +8,12 @@ class Tower : public Publisher
         short speed;
         short buyPrice;
         short sellPrice;
+        short xMatrix;
+        short yMatrix;
     public:
-        Tower(short attackDmg, short speed, short buyPrice, short sellPrice);
+        Tower(short xMatrix, short yMatrix, short attackDmg, short speed, short buyPrice, short sellPrice);
         ~Tower();
+        short getXMatrix();
+        short getYMatrix();
         void attack();
 };

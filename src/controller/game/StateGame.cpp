@@ -69,7 +69,7 @@ void StateGame::init(){
     this->smallInvaderCreator = std::make_unique<SmallInvaderCreator>();
     this->bigInvaderCreator = std::make_unique<BigInvaderCreator>();
     this->invaders.push_back(smallInvaderCreator->createInvader(40,40,1));
-    this->towers.push_back(smallTowerCreator->createTower());
+    this->towers.push_back(smallTowerCreator->createTower(0,0));
 
     this->setState(RUNNING);
 };

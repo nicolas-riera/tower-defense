@@ -4,6 +4,6 @@
 class BigTower : public Tower
 {
     public:
-        BigTower();
+        BigTower(short xMatrix, short yMatrix);
         ~BigTower();
 };
