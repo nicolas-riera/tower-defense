@@ -36,8 +36,11 @@ void StateGameRunningShop::expose(){
             row >= 0 && row < static_cast<int>(grid.size() - 1)) {
             
             if (grid[row][col] == 1) {
-                // L'ACTION QUAND C'EST VALIDE (Ex: Placer la tour sélectionnée)
-                // this->context->placeTower(row, col);
+
+                this->context->placeTower(static_cast<short>(row), static_cast<short>(col));
+
+                this->context->selectedTower = EMPTY;
+                this->context->setState(RUNNING);
             }
         }
     }

@@ -50,6 +50,14 @@ std::vector<std::unique_ptr<Tower>>& StateGame::getTowers(){
     return this->towers;
 }
 
+void StateGame::placeTower(short xMatrix, short yMatrix) {
+    if (this->selectedTower == SMALLTOWER) {
+        this->smallTowerCreator->createTower(xMatrix, yMatrix);
+    } else {
+        this->bigTowerCreator->createTower(xMatrix, yMatrix);
+    }
+}
+
 std::vector<std::unique_ptr<Invader>>& StateGame::getInvaders(){
     return this->invaders;
 }
