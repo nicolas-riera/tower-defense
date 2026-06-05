@@ -46,10 +46,6 @@ void StateGame::setState(GameStates state)
     this->nextState = state;
 }
 
-GameWindowState* StateGame::getState() {
-    return this->state.get();
-};
-
 std::vector<std::unique_ptr<Tower>>& StateGame::getTowers(){
     return this->towers;
 }
@@ -57,6 +53,10 @@ std::vector<std::unique_ptr<Tower>>& StateGame::getTowers(){
 std::vector<std::unique_ptr<Invader>>& StateGame::getInvaders(){
     return this->invaders;
 }
+
+GridMatrix& StateGame::getGrid() {
+    return this->stage->grid;
+};
 
 void StateGame::init(){
 
