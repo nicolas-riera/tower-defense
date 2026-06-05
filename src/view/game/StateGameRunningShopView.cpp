@@ -33,8 +33,17 @@ void StateGameRunningShopView::display(const GridMatrix& grid, float windowWidth
 
             if (mousePos.x >= posX && mousePos.x < posX + scaledTileSize &&
                 mousePos.y >= posY && mousePos.y < posY + scaledTileSize) {
+
+                bool validCell = (grid[row][col] == 1);
                 
-                Color overlayColor = (grid[row][col] == 1) ? GREEN : RED;
+                for (const auto& tower : this->context->getTowers()) {
+                    if (tower->getXMatrix() == static_cast<short>(col) && tower->getYMatrix() == static_cast<short>(row)) {
+                        validCell = false;
+                        break; 
+                    }
+                }
+                
+                Color overlayColor = validCell ? GREEN : RED;
                 
                 DrawRectangleV(Vector2{posX, posY}, Vector2{scaledTileSize, scaledTileSize}, Fade(overlayColor, 0.4f));
                 

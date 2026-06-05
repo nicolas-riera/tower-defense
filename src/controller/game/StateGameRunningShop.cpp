@@ -1,4 +1,5 @@
 #include "StateGameRunningShop.hpp"
+#include <iostream>
 
 void StateGameRunningShop::init(){
     StateGameRunningBase::init();
@@ -36,6 +37,12 @@ void StateGameRunningShop::expose(){
             row >= 0 && row < static_cast<int>(grid.size() - 1)) {
             
             if (grid[row][col] == 1) {
+
+                for (const auto& tower : this->context->getTowers()) {
+                    if (tower->getXMatrix() == static_cast<short>(col) && tower->getYMatrix() == static_cast<short>(row)) {
+                        return; 
+                    }
+                }
 
                 this->context->placeTower(static_cast<short>(row), static_cast<short>(col));
 
