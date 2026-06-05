@@ -12,6 +12,7 @@ private:
     Color currentColor;
     std::function<void()> onClick;
     TowerDefense* context;
+    bool isActive = true;
 
 public:
     Button(float x, float y, float width, float height, std::string text, std::function<void()> callback, TowerDefense* towerDefense);
@@ -19,6 +20,8 @@ public:
     void Update();
     void Draw() const;
     void UpdateText(std::string text);
+    void SetActive(bool active);
+    bool IsActive() const;
 };
 
 using ButtonsVector = std::vector<std::unique_ptr<Button>>;

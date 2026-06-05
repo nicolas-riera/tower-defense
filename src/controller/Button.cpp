@@ -9,6 +9,13 @@ Button::~Button(){};
 
 void Button::Update()
 {
+
+    if (!isActive) 
+    {
+        currentColor = DARKGRAY; 
+        return;
+    }
+
     Vector2 mousePos = GetMousePosition();
 
     if (CheckCollisionPointRec(mousePos, bounds))
@@ -22,7 +29,7 @@ void Button::Update()
 
         if (IsMouseButtonDown(MOUSE_BUTTON_LEFT))
         {
-            currentColor = MAROON;
+            currentColor = DARKGRAY;
         }
         else
         {
@@ -51,4 +58,12 @@ void Button::Draw() const
 
 void Button::UpdateText(std::string text) {
     this->text = text;
+};
+
+void Button::SetActive(bool active) {
+    this->isActive = active;
+};
+
+bool Button::IsActive() const {
+    return this->isActive;
 };
