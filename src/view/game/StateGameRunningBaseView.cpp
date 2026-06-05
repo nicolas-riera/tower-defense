@@ -25,7 +25,6 @@ void StateGameRunningBaseView::display(const ButtonsVector& buttons, const std::
     float finalScale = this->context->getView()->getFinalScale();
     float scaledTileSize = 128.0f * finalScale;
     for (auto& tower : towers) {
-        // Calculate the exact screen position using the grid's offset and scale
         float posX = this->context->getView()->getOffsetX() + (static_cast<float>(tower->getXMatrix()) * scaledTileSize);
         float posY = this->context->getView()->getOffsetY() + (static_cast<float>(tower->getYMatrix()) * scaledTileSize);
         Vector2 position = { posX, posY };
@@ -33,7 +32,6 @@ void StateGameRunningBaseView::display(const ButtonsVector& buttons, const std::
         switch (tower->getType())
         {
         case SMALLTOWER:
-            // DrawTextureEx resizes the texture using the finalScale factor
             DrawTextureEx(textureSmallTower, position, 0.0f, finalScale, WHITE);
             break;
         case BIGTOWER:
@@ -43,9 +41,9 @@ void StateGameRunningBaseView::display(const ButtonsVector& buttons, const std::
             break;
         }
     };
-/*     for (auto& invader : invaders) {
-        std::cout << invader->x << "\n";
-        std::cout << invader->y << std::endl;
-    }; */
+     for (auto& invader : invaders) {
+       /*  std::cout << invader->x << "\n";
+        std::cout << invader->y << std::endl; */
+    };
 };
 
