@@ -14,6 +14,9 @@ void StateOptions::init(){
     this->optionsButtons.push_back(std::make_unique<Button>((this->context->screenWidth / 2) - 75, 350, 150, 50, soundMgr.getIsMusicOn() ? "Music : On" : "Music : Off", [this]() {
         this->context->getSoundManager().setIsMusicOn(!this->context->getSoundManager().getIsMusicOn());
         this->optionsButtons[0]->UpdateText(this->context->getSoundManager().getIsMusicOn() ? "Music : On" : "Music : Off");
+        if (this->context->getSoundManager().getIsMusicOn()) {
+            this->context->getSoundManager().playMusic(0);
+        };
     }, this->context));
     this->optionsButtons.push_back(std::make_unique<Button>((this->context->screenWidth / 2) - 75, 410, 150, 50, soundMgr.getIsSfxOn() ? "SFX : On" : "SFX : Off", [this]() {
         this->context->getSoundManager().setIsSfxOn(!this->context->getSoundManager().getIsSfxOn());
