@@ -25,6 +25,12 @@ enum GameStates{
     GAMEWON
 };
 
+enum TowerSelection{
+    EMPTY,
+    SMALLTOWER,
+    BIGTOWER
+};
+
 enum Event{
     CLICK,
     SHOOT,

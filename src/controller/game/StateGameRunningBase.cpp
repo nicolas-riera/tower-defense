@@ -10,11 +10,15 @@ void StateGameRunningBase::init(){
     this->view->setContext(this->context);
 
     this->gameRunningButtons.push_back(std::make_unique<Button>(695, 660, 220, 50, "Small Tower (20 G)", [this]() {
-        this->context->setState(RUNNINGSHOP);
+        bool isRunning = (dynamic_cast<StateGameRunningBase*>(this->context->getState()) != nullptr);
+        this->context->setState(isRunning ? RUNNINGSHOP : RUNNING);
+        this->context->selectedTower = (this->context->selectedTower == EMPTY) ? SMALLTOWER : EMPTY;
     }, this->context->getContext()));
 
     this->gameRunningButtons.push_back(std::make_unique<Button>(930, 660, 220, 50, "Big Tower (60 G)", [this]() {
-            
+        bool isRunning = (dynamic_cast<StateGameRunningBase*>(this->context->getState()) != nullptr);
+        this->context->setState(isRunning ? RUNNINGSHOP : RUNNING);
+        this->context->selectedTower = (this->context->selectedTower == EMPTY) ? BIGTOWER: EMPTY;
     }, this->context->getContext()));
 
     this->gameRunningButtons.push_back(std::make_unique<Button>(1165, 660, 100, 50, "Pause", [this]() {

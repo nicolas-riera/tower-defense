@@ -25,10 +25,12 @@ class StateGame : public WindowState
         std::unique_ptr<GameWindowState> state;
         GameStates nextState;
     public:
+        TowerSelection selectedTower = EMPTY;
         StateGame();
         ~StateGame();
         void updateState();
         void setState(GameStates state);
+        GameWindowState* getState();
         std::vector<std::unique_ptr<Tower>>& getTowers();
         std::vector<std::unique_ptr<Invader>>& getInvaders();
         void init();

@@ -46,6 +46,10 @@ void StateGame::setState(GameStates state)
     this->nextState = state;
 }
 
+GameWindowState* StateGame::getState() {
+    return this->state.get();
+};
+
 std::vector<std::unique_ptr<Tower>>& StateGame::getTowers(){
     return this->towers;
 }
