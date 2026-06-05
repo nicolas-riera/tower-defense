@@ -22,14 +22,22 @@ void StateGameRunningBaseView::display(const ButtonsVector& buttons, const std::
     for (auto& btn : buttons) {
         btn->Draw();
     };
+    float finalScale = this->context->getView()->getFinalScale();
+    float scaledTileSize = 128.0f * finalScale;
     for (auto& tower : towers) {
+        // Calculate the exact screen position using the grid's offset and scale
+        float posX = this->context->getView()->getOffsetX() + (static_cast<float>(tower->getXMatrix()) * scaledTileSize);
+        float posY = this->context->getView()->getOffsetY() + (static_cast<float>(tower->getYMatrix()) * scaledTileSize);
+        Vector2 position = { posX, posY };
+
         switch (tower->getType())
         {
         case SMALLTOWER:
-            DrawTexture(textureSmallTower, tower->getXMatrix()*128, tower->getYMatrix()*128, WHITE);
+            // DrawTextureEx resizes the texture using the finalScale factor
+            DrawTextureEx(textureSmallTower, position, 0.0f, finalScale, WHITE);
             break;
         case BIGTOWER:
-            DrawTexture(textureBigTower, tower->getXMatrix()*128, tower->getYMatrix()*128, WHITE);
+            DrawTextureEx(textureBigTower, position, 0.0f, finalScale, WHITE);
             break;
         default:
             break;

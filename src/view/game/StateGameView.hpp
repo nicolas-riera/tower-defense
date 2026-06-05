@@ -16,9 +16,15 @@ class StateGameView: public WindowView
         Texture2D texturePath;
         Texture2D textureStart;
         Texture2D textureEnd;
+        float finalScale;
+        float offsetX;
+        float offsetY;
     public:
         StateGameView();
         ~StateGameView();
+        const float& getFinalScale();
+        const float& getOffsetX();
+        const float& getOffsetY();
         void init();
         void display(const ButtonsVector& buttons);
         void display(const GridMatrix& grid, const GameStats& gameStats);

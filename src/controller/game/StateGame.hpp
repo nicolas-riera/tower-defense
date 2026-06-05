@@ -35,6 +35,7 @@ class StateGame : public WindowState
         std::vector<std::unique_ptr<Invader>>& getInvaders();
         GridMatrix& getGrid();
         int getBalance();
+        const std::unique_ptr<StateGameView>& getView();
         void init();
         void expose();
 };

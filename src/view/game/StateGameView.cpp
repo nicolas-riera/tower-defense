@@ -12,6 +12,18 @@ StateGameView::~StateGameView() {
     UnloadTexture(textureEnd);
 };
 
+const float& StateGameView::getFinalScale(){
+    return this->finalScale;
+};
+
+const float& StateGameView::getOffsetX(){
+    return this->offsetX;
+};
+
+const float& StateGameView::getOffsetY(){
+    return this->offsetY;
+};
+
 void StateGameView::init() {
     // Grid
     textureBackground = LoadTexture("assets/img/grid/bg.png");
@@ -43,12 +55,12 @@ void StateGameView::display(const GridMatrix& grid, const GameStats& gameStats) 
 
     float scaleX = windowWidth / gridWidth;
     float scaleY = windowHeight / gridHeight;
-    float finalScale = (scaleX < scaleY) ? scaleX : scaleY;
+    this->finalScale = (scaleX < scaleY) ? scaleX : scaleY;
 
     float scaledTileSize = baseTileSize * finalScale;
 
-    float offsetX = (windowWidth - (grid[0].size() * scaledTileSize)) / 2.0f;
-    float offsetY = (windowHeight - (grid.size() * scaledTileSize)) / 2.0f;
+    this->offsetX = (windowWidth - (grid[0].size() * scaledTileSize)) / 2.0f;
+    this->offsetY = (windowHeight - (grid.size() * scaledTileSize)) / 2.0f;
 
     for (size_t row = 0; row < grid.size(); ++row) {
         for (size_t col = 0; col < grid[row].size(); ++col) {

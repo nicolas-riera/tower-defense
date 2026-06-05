@@ -76,6 +76,10 @@ int StateGame::getBalance() {
     return this->gameStats->balance;
 }
 
+const std::unique_ptr<StateGameView>& StateGame::getView(){
+    return this->view;
+}
+
 void StateGame::init(){
 
     this->view = std::make_unique<StateGameView>();
