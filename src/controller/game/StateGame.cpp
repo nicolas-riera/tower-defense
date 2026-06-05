@@ -1,6 +1,7 @@
 #include "StateGame.hpp"
 
 #include "StateGameRunning.hpp"
+#include "StateGameRunningShop.hpp"
 #include "StateGamePauseMenu.hpp"
 #include "StateGameLost.hpp"
 #include "StateGameWon.hpp"
@@ -18,6 +19,9 @@ void StateGame::updateState()
     {
     case RUNNING:
         this->state = std::make_unique<StateGameRunning>();
+        break;
+    case RUNNINGSHOP:
+        this->state = std::make_unique<StateGameRunningShop>();
         break;
     case PAUSEMENU:
         this->state = std::make_unique<StateGamePauseMenu>();

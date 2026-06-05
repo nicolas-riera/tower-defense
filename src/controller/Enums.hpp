@@ -19,6 +19,7 @@ enum Difficulty{
 enum GameStates{
     WAIT,
     RUNNING,
+    RUNNINGSHOP,
     PAUSEMENU,
     GAMELOST,
     GAMEWON
