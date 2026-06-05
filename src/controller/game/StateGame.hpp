@@ -34,6 +34,7 @@ class StateGame : public WindowState
         void placeTower(short xMatrix, short yMatrix);
         std::vector<std::unique_ptr<Invader>>& getInvaders();
         GridMatrix& getGrid();
+        int getBalance();
         void init();
         void expose();
 };

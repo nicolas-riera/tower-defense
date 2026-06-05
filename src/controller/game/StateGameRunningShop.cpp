@@ -44,7 +44,7 @@ void StateGameRunningShop::expose(){
                     }
                 }
 
-                this->context->placeTower(static_cast<short>(row), static_cast<short>(col));
+                this->context->placeTower(static_cast<short>(col), static_cast<short>(row));
 
                 this->context->selectedTower = EMPTY;
                 this->context->setState(RUNNING);
