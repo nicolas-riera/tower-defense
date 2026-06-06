@@ -1,4 +1,5 @@
 #include "StateGameRunningBaseView.hpp"
+#include <iostream>
 
 StateGameRunningBaseView::StateGameRunningBaseView(){};
 
@@ -14,6 +15,9 @@ void StateGameRunningBaseView::init() {
     textureBigTower = LoadTexture("assets/img/towers/big_tower.png"); 
     textureSmallInvader = LoadTexture("assets/img/invaders/small_invader_sprite.png");
     textureBigInvader = LoadTexture("assets/img/invaders/big_invader_sprite.png");
+    currentFrame = 0;
+    framesSpeed = 8;
+    frameRec = { 0.0f, 0.0f, (float)textureSmallInvader.width/6, (float)textureSmallInvader.height };
 };
 
 void StateGameRunningBaseView::display(const ButtonsVector& buttons){};
@@ -41,9 +45,34 @@ void StateGameRunningBaseView::display(const ButtonsVector& buttons, const std::
             break;
         }
     };
-     for (auto& invader : invaders) {
-       /*  std::cout << invader->x << "\n";
-        std::cout << invader->y << std::endl; */
+    framesCounter++;
+
+    if (framesCounter >= (60/framesSpeed))
+    {
+        framesCounter = 0;
+        currentFrame++;
+
+        if (currentFrame > 5) currentFrame = 0;
+
+        frameRec.x = (float)currentFrame*(float)textureSmallInvader.width/6;
+    }
+
+    for (auto& invader : invaders) {
+        float posX = this->context->getView()->getOffsetX() + (static_cast<float>(invader->x) * scaledTileSize);
+        float posY = this->context->getView()->getOffsetY() + (static_cast<float>(invader->y) * scaledTileSize);
+        Vector2 position = { posX, posY };
+
+        switch (invader->getType())
+        {
+        case SMALLINVADER:
+            DrawTextureRec(textureSmallInvader, frameRec, position, WHITE);
+            break;
+        case BIGINVADER:
+            DrawTextureRec(textureBigInvader, frameRec, position, WHITE);
+            break;
+        default:
+            break;
+        }
     };
 };
 

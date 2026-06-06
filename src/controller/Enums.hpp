@@ -31,6 +31,13 @@ enum TowerSelection{
     BIGTOWER
 };
 
+enum InvaderSelection{
+    NOBODY,
+    SMALLINVADER,
+    BIGINVADER,
+    BOSSINVADER
+};
+
 enum Event{
     CLICK,
     SHOOT,

@@ -8,9 +8,13 @@ class StateGameRunningBaseView: public GameWindowView
 {
     private:
         Texture2D textureSmallTower;
-        Texture2D textureBigTower; 
+        Texture2D textureBigTower;
         Texture2D textureSmallInvader;
         Texture2D textureBigInvader;
+        short framesCounter;
+        short framesSpeed;
+        short currentFrame;
+        Rectangle frameRec;
     public:
         StateGameRunningBaseView();
         ~StateGameRunningBaseView();
