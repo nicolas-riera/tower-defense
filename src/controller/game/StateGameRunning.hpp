@@ -1,5 +1,16 @@
 #pragma once
-#include "StateGameRunningBase.hpp"
+#include "GameWindowState.hpp"
+#include <memory>
 #include "../../view/game/StateGameRunningView.hpp"
 
-class StateGameRunning : public StateGameRunningBase {};
+class StateGameRunning : public GameWindowState
+{
+    private:
+        std::unique_ptr<StateGameRunningView> view;
+        ButtonsVector gameRunningButtons;
+    public:
+        StateGameRunning();
+        ~StateGameRunning();
+        void init();
+        void expose();
+};

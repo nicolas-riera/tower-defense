@@ -1,5 +1,5 @@
 #pragma once
-#include "StateGameRunningBaseView.hpp"
+#include "StateGameRunningView.hpp"
 #include "raylib.h"
 
 class StateGameRunningShopView: public GameWindowView

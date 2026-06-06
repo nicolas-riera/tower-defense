@@ -2,7 +2,7 @@
 #include <iostream>
 
 void StateGameRunningShop::init(){
-    StateGameRunningBase::init();
+    StateGameRunning::init();
 
     this->view = std::make_unique<StateGameRunningShopView>();
     this->view->init();
@@ -10,7 +10,7 @@ void StateGameRunningShop::init(){
 };
 
 void StateGameRunningShop::expose(){
-    StateGameRunningBase::expose();
+    StateGameRunning::expose();
 
     const auto& grid = this->context->getGrid(); 
     float windowWidth = this->context->getContext()->screenWidth;
