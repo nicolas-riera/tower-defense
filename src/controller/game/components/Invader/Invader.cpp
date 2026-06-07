@@ -1,5 +1,6 @@
 #include "Invader.hpp"
 #include <cmath>
+#include <iostream>
 
 Invader::Invader(std::vector<Vector2> waypoints, 
                  short life, 
@@ -7,7 +8,8 @@ Invader::Invader(std::vector<Vector2> waypoints,
                  InvaderSelection invaderType) : waypoints(waypoints), 
                                                  life(life), 
                                                  speed(speed), 
-                                                 invaderType(invaderType){
+                                                 invaderType(invaderType),
+                                                 waypointIndex(0){
     this->position.x = waypoints[0].x;
     this->position.y = waypoints[0].y;
 }
@@ -23,7 +25,6 @@ void Invader::move(float deltaTime) {
         // Invader reached the end tile (Player loses health/life)
         return;
     }
-
     Vector2 target = waypoints[waypointIndex];
 
     Vector2 direction = { target.x - position.x, target.y - position.y };

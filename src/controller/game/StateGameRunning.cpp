@@ -37,6 +37,9 @@ void StateGameRunning::expose(){
         this->gameRunningButtons[0]->SetActive(this->context->getBalance() >= 20 || this->context->selectedTower != EMPTY);
         this->gameRunningButtons[1]->SetActive(this->context->getBalance() >= 60 || this->context->selectedTower != EMPTY);
     }
+    for (auto& invader: this->context->getInvaders()){
+        invader->move(GetFrameTime());
+    }
 
     this->view->display(this->gameRunningButtons, this->context->getTowers(), this->context->getInvaders());
 };
