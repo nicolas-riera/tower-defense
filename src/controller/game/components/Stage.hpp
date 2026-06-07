@@ -1,9 +1,11 @@
 #pragma once
 #include <fstream>
 #include <vector>
+#include <queue>
 #include <string>
 #include <iostream>
 #include <random>
+#include <raylib.h>
 #include "picojson.h"
 #include "../../Enums.hpp"
 
@@ -19,4 +21,5 @@ class Stage
         Stage();
         ~Stage();
         void init(Difficulty difficulty);
+        std::vector<Vector2> generatePath();
 };

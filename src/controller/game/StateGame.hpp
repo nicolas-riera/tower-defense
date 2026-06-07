@@ -15,6 +15,7 @@ class StateGame : public WindowState
     private:
         std::unique_ptr<StateGameView> view;
         std::unique_ptr<Stage> stage;
+        std::vector<Vector2> masterWayPoint;
         std::unique_ptr<GameStats> gameStats;
         std::vector<std::unique_ptr<Tower>> towers;
         std::unique_ptr<SmallTowerCreator> smallTowerCreator;
