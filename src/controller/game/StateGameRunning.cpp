@@ -9,6 +9,15 @@ void StateGameRunning::init(){
     this->view->init();
     this->view->setContext(this->context);
 
+    this->framesCounter = 0;
+    this->framesSpeed = 2;
+
+    std::random_device rd;
+    this->gen = std::mt19937(rd());
+    this->distrib = std::uniform_int_distribution<int>(300, 1000);
+
+    this->spawnTarget = this->distrib(this->gen) / this->framesSpeed;
+
     this->gameRunningButtons.push_back(std::make_unique<Button>(695, 660, 220, 50, "Small Tower (20 G)", [this]() {
         this->context->setState((this->context->selectedTower == EMPTY) ? RUNNINGSHOP : RUNNING);
         this->context->selectedTower = (this->context->selectedTower == EMPTY) ? SMALLTOWER : EMPTY;
@@ -28,6 +37,23 @@ void StateGameRunning::init(){
 };
 
 void StateGameRunning::expose(){
+
+    ++framesCounter;
+    if (framesCounter >= this->spawnTarget)
+    {   
+        framesCounter = 0;
+        
+        int actualRolledValue = this->spawnTarget * this->framesSpeed;
+        std::cout << actualRolledValue << std::endl; 
+        
+        if (actualRolledValue < 900){
+            context->getInvaders().push_back(context->getSmallInvaderCreator()->createInvader(context->getMasterwaypoints(),1));
+        } else {
+            context->getInvaders().push_back(context->getBigInvaderCreator()->createInvader(context->getMasterwaypoints(),1));
+        }
+        
+        this->spawnTarget = this->distrib(this->gen) / this->framesSpeed;
+    }
 
     for (auto& btn : this->gameRunningButtons) {
         btn->Update();

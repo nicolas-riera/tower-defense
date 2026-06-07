@@ -68,9 +68,21 @@ std::vector<std::unique_ptr<Invader>>& StateGame::getInvaders(){
     return this->invaders;
 }
 
+const std::unique_ptr<SmallInvaderCreator>& StateGame::getSmallInvaderCreator(){
+    return this->smallInvaderCreator;
+}
+
+const std::unique_ptr<BigInvaderCreator>& StateGame::getBigInvaderCreator(){
+    return this->bigInvaderCreator;
+}
+
 GridMatrix& StateGame::getGrid() {
     return this->stage->grid;
 };
+
+const std::vector<Vector2>& StateGame::getMasterwaypoints(){
+    return this->masterwaypoints;
+}
 
 int StateGame::getBalance() {
     return this->gameStats->balance;

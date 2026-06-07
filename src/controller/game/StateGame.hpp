@@ -34,7 +34,10 @@ class StateGame : public WindowState
         std::vector<std::unique_ptr<Tower>>& getTowers();
         void placeTower(short xMatrix, short yMatrix);
         std::vector<std::unique_ptr<Invader>>& getInvaders();
+        const std::unique_ptr<SmallInvaderCreator>& getSmallInvaderCreator();
+        const std::unique_ptr<BigInvaderCreator>& getBigInvaderCreator();
         GridMatrix& getGrid();
+        const std::vector<Vector2>& getMasterwaypoints();
         int getBalance();
         const std::unique_ptr<StateGameView>& getView();
         void init();

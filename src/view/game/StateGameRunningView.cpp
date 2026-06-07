@@ -16,7 +16,8 @@ void StateGameRunningView::init() {
     textureSmallInvader = LoadTexture("assets/img/invaders/small_invader_sprite.png");
     textureBigInvader = LoadTexture("assets/img/invaders/big_invader_sprite.png");
     currentFrame = 0;
-    framesSpeed = 8;
+    framesCounter = 0;
+    framesSpeed = 6;
     frameRec = { 0.0f, 0.0f, (float)textureSmallInvader.width/6, (float)textureSmallInvader.height };
 };
 
@@ -45,12 +46,12 @@ void StateGameRunningView::display(const ButtonsVector& buttons, const std::vect
             break;
         }
     };
-    framesCounter++;
+    ++framesCounter;
 
     if (framesCounter >= (60/framesSpeed))
     {
         framesCounter = 0;
-        currentFrame++;
+        ++currentFrame;
 
         if (currentFrame > 5) currentFrame = 0;
 
