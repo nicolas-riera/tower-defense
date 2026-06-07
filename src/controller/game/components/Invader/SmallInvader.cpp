@@ -1,5 +1,5 @@
 #include "SmallInvader.hpp"
 
-SmallInvader::SmallInvader(short x, short y, short difficultyFactor) : Invader(x, y, 5*difficultyFactor, 2*difficultyFactor, SMALLINVADER){}
+SmallInvader::SmallInvader(std::vector<Vector2> waypoints, short difficultyFactor) : Invader(waypoints, 5*difficultyFactor, 2*difficultyFactor, SMALLINVADER){}
 
 SmallInvader::~SmallInvader(){}

@@ -88,14 +88,14 @@ void StateGame::init(){
 
     this->stage = std::make_unique<Stage>();
     this->stage->init(this->context->difficulty);
-    this->masterWayPoint = this->stage->generatePath();
+    this->masterwaypoints = this->stage->generatePath();
     this->gameStats = std::make_unique<GameStats>();
 
     this->smallTowerCreator = std::make_unique<SmallTowerCreator>();
     this->bigTowerCreator = std::make_unique<BigTowerCreator>();
     this->smallInvaderCreator = std::make_unique<SmallInvaderCreator>();
     this->bigInvaderCreator = std::make_unique<BigInvaderCreator>();
-    this->invaders.push_back(smallInvaderCreator->createInvader(masterWayPoint[0].x,masterWayPoint[0].y,1));
+    this->invaders.push_back(smallInvaderCreator->createInvader(masterwaypoints,1));
     this->setState(RUNNING);
 };
 

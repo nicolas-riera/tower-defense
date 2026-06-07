@@ -58,21 +58,18 @@ void StateGameRunningView::display(const ButtonsVector& buttons, const std::vect
     }
 
     for (auto& invader : invaders) {
-        float posX = this->context->getView()->getOffsetX() + (static_cast<float>(invader->x) * scaledTileSize);
-        float posY = this->context->getView()->getOffsetY() + (static_cast<float>(invader->y) * scaledTileSize);
-        Vector2 position = { posX, posY };
+        float posX = this->context->getView()->getOffsetX() + (invader->position.x * scaledTileSize);
+        float posY = this->context->getView()->getOffsetY() + (invader->position.y * scaledTileSize);
 
-        switch (invader->getType())
-        {
-        case SMALLINVADER:
-            DrawTextureRec(textureSmallInvader, frameRec, position, WHITE);
-            break;
-        case BIGINVADER:
-            DrawTextureRec(textureBigInvader, frameRec, position, WHITE);
-            break;
-        default:
-            break;
-        }
-    };
+        Texture2D texture = (invader->getType() == SMALLINVADER) ? textureSmallInvader : textureBigInvader;
+        Rectangle srcRec = frameRec; 
+        Rectangle destRec = { 
+            posX, 
+            posY, 
+            scaledTileSize,
+            scaledTileSize
+        };
+        DrawTexturePro(texture, srcRec, destRec, Vector2{0.0f, 0.0f}, 0.0f, WHITE);
+    }
 };
 

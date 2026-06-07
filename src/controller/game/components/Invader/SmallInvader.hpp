@@ -4,6 +4,6 @@
 class SmallInvader : public Invader
 {
     public:
-        SmallInvader(short x, short y, short difficultyFactor);
+        SmallInvader(std::vector<Vector2> waypoints, short difficultyFactor);
         ~SmallInvader();
 };

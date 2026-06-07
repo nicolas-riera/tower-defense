@@ -1,18 +1,21 @@
 #pragma once
 #include "../../../events/Subscriber.hpp"
 #include "../../../events/Publisher.hpp"
+#include <raylib.h>
 
 class Invader : public Subscriber, public Publisher
 {
     protected:
         short life;
-        short speed;
+        float speed;
         InvaderSelection invaderType;
+        std::vector<Vector2> waypoints;
+        int waypointIndex;
     public:
-        short x;
-        short y;
-        Invader(short x, short y, short life, short speed, InvaderSelection invaderType);
+        Vector2 position;
+        Invader(std::vector<Vector2> waypoints, short life, float speed, InvaderSelection invaderType);
         ~Invader();
         InvaderSelection getType();
+        void move(float deltaTime);
         void update(Event event);
 };

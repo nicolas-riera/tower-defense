@@ -4,6 +4,6 @@ BigInvaderCreator::BigInvaderCreator(){}
 
 BigInvaderCreator::~BigInvaderCreator(){}
 
-std::unique_ptr<Invader> BigInvaderCreator::createInvader(short x, short y, short difficultyIndex){
-    return std::make_unique<BigInvader>(x, y, difficultyIndex);
+std::unique_ptr<Invader> BigInvaderCreator::createInvader(std::vector<Vector2> waypoints, short difficultyIndex){
+    return std::make_unique<BigInvader>(waypoints, difficultyIndex);
 }

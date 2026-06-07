@@ -5,5 +5,5 @@
 class InvaderCreator
 {
     public:
-        virtual std::unique_ptr<Invader> createInvader(short x, short y, short difficultyIndex) = 0;
+        virtual std::unique_ptr<Invader> createInvader(std::vector<Vector2> waypoints, short difficultyIndex) = 0;
 };
